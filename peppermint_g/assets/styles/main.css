@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'VT323', monospace;
+  font-size: 20px;
+}
+
+html {
+  background: #0f380f;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 612px auto;
+}
+
+main {
+  height: 80%;
+  margin: 16px;
+  border-radius: 16px;
+  background: #0f380f;
+  border: 3px solid #8bac0f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5%;
+}
+
+#screen {
+  width: 90%;
+  height: 45%;
+  margin-top: 32px;
+  border: 2px solid #8bac0f;
+  background: #306230;
+  border-radius: 16px;
+}
+
+progress {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 256px;
+  border-radius: 8px;
+  margin: 8px 8px;
+  border: 2px solid #8bac0f;
+}
+
+progress[value]::-webkit-progress-bar,
+progress[value] {
+  background-color: #306230;
+  border-radius: 8px;
+}
+
+progress[value]::-webkit-progress-value {
+  background-color: #70860c;
+  transition: all 0.2s ease-out;
+  border-radius: 8px;
+}
+
+progress[value]::-moz-progress-bar {
+  background-color: #70860c;
+  transition: all 0.2s ease-out;
+}
+
+#controls {
+  width: 90%;
+  height: 45%;
+  margin-bottom: 32px;
+  border: 2px solid #8bac0f;
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 220px repeat(2, 48px);
+}
+
+#stats {
+  width: 98%;
+  height: 95%;
+  background: #306230;
+  padding: 8px 16px;
+  border: 2px solid #8bac0f;
+  border-radius: 8px;
+  grid-column: 1 / -1;
+  place-self: center;
+}
+
+button {
+  width: 95%;
+  height: 2rem;
+  border-radius: 8px;
+  place-self: center;
+  cursor: pointer;
+}
