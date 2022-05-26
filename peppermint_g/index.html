@@ -1,34 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Peppermint_G</title>
   <link rel="stylesheet" href="assets/styles/main.css">
+  <script src="/assets/scripts/vendor.js" defer></script>
+  <script src="/assets/scripts/app.js" defer></script>
 </head>
 
 <body>
   <main>
     <section id="screen">
       <progress id="player-health" max="100" value="100">100%</progress>
+      <progress id="player-mana" max="100" value="100">100%</progress>
+      <div id="enemy">
+        <h2 id="enemy-name">Lil' Shit - Lvl <span id="enemy-lvl">1</span></h2>
+        <progress id="enemy-health" max="100" value="100">100%</progress>
+        <img src="/assets/images/pngwing.com.png" alt="">
+      </div>
+      <div id="hero">
+        <img src="/assets/images/hero.png.png" alt="">
+      </div>
     </section>
     <section id="controls">
-      <div id="stats">
-        <div id="title">This are your stats:</div>
-        <div id="sts-hp">Health Points:</div>
-        <div id="sts-mp">Magic Points:</div>
-        <div id="sts-strength">Strenght:</div>
-        <div id="sts-speed">Speed:</div>
-        <div id="sts-intelligence">Intelligence:</div>
+
+      <div id="snd-screen">
+        <div id="stats">
+          <div class="title">These are your stats:</div>
+          <div>Life: <span id="life-max"></span>/<span id="life-current"></span></div>
+          <div>Mana: <span id="mana-max"></span>/<span id="mana-current"></span></div>
+          <div>Health Points: <span id="sts-hp"></span></div>
+          <div>Magic Points: <span id="sts-mp"></span></div>
+          <div>Strenght: <span id="sts-strength"></span></div>
+          <div>Speed: <span id="sts-speed"></span></div>
+          <div>Toughness: <span id="sts-toughness"></span></div>
+        </div>
+        <div id="divide-bar"></div>
+        <div id="notification">
+          <div class="title">Notifications:</div>
+          <div>Lvl 1 Lil' Shit just appeared!!</div>
+          <div></div>
+          <div></div>
+        </div>
       </div>
+
       <button id="attack-btn">Attack</button>
-      <button id="spec-attack-btn">Special Attack</button>
+      <button id="spec-move-btn">Special Move</button>
       <button id="parry-btn">Parry</button>
       <button id="action-btn">Action</button>
     </section>
   </main>
-  <aside id="notifications">Notifications:</aside>
+  <aside id="notifications">Whole Load o' Shit Bar</aside>
 </body>
 
 </html>
