@@ -4,7 +4,3 @@ let currentPlayerHealth = playerHealthBar.value;
 let currentPlayerMana = playerManaBar.value;
 
 adjustBars(baseBarValue);
-
-
-
-
