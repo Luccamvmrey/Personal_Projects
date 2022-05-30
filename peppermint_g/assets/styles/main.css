@@ -131,7 +131,7 @@ progress[value]::-moz-progress-bar {
   grid-column: 1 / -1;
   place-self: center;
   display: grid;
-  grid-template-columns: 1fr 5px 1fr;
+  grid-template-columns: 230px 5px 230px;
 }
 
 #snd-screen {
@@ -151,6 +151,10 @@ progress[value]::-moz-progress-bar {
 
 #notification {
   margin-left: 16px;
+}
+
+#notification div {
+  word-wrap: break-word;
 }
 
 button {

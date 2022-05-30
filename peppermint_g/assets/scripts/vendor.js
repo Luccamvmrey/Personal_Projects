@@ -2,6 +2,10 @@ const playerHealthBar = document.getElementById("player-health");
 const playerManaBar = document.getElementById("player-mana");
 const enemyHealthBar = document.getElementById("enemy-health");
 
+let notifAppeared = document.getElementById("not-01");
+let notifWasKilled = document.getElementById("not-02");
+let notifDropped = document.getElementById("not-03");
+let notifExtra = document.getElementById("not-04");
 let lifeMax = document.getElementById("life-max");
 let lifeCurrent = document.getElementById("life-current");
 let manaMax = document.getElementById("mana-max");
@@ -11,6 +15,8 @@ let statMP = document.getElementById("sts-mp");
 let statStrenght = document.getElementById("sts-strength");
 let statSpeed = document.getElementById("sts-speed");
 let statToughness = document.getElementById("sts-toughness");
+let enemyName = document.getElementById("enemy-name");
+let enemyLvl = document.getElementById("enemy-lvl");
 
 const startingStatLevel = 1;
 
@@ -23,6 +29,10 @@ const actionBtn = document.getElementById("action-btn");
 const debugHPBtn = document.getElementById("test-HP-UP");
 const debugMPBtn = document.getElementById("test-MP-UP");
 //
+
+function getRandom(min, max) {
+  return Math.random() * (max - min) + min;
+}
 
 //Coloca informações da barra de vida na tela de stats
 function barToValueHP() {
@@ -48,6 +58,13 @@ function adjustBars(baseBarValue) {
   playerManaBar.value = baseBarValue;
   barToValueHP();
   barToValueMP();
+}
+
+function getNewEnemy(name, lvl) {
+  enemyName.innerHTML = name;
+  enemyLvl.innerHTML = lvl; 
+  notifAppeared.innerHTML = `Lvl ${lvl} ${name} has appeared!!`
+  enemyHealthBar.value = baseBarValue;
 }
 
 //Define como vida escala conforme níveis
@@ -91,7 +108,27 @@ function assignStatPoint(stat) {
   }
 }
 
-//Usadas para este das escalas de vida e mana
+function dealEnemyDamage(damage) {
+  let dealtDamage; 
+  if (statStrenght.value === 1) {
+    dealtDamage = parseInt(getRandom(0.5, 1) * damage);
+  } else if ( statStrenght.value === 2) {
+    dealtDamage = parseInt(getRandom(0.5, 1) * damage * (statStrenght.value / 1.5));
+  } else {
+    dealtDamage = parseInt(getRandom(0.5, 1) * damage * (statStrenght.value / 2));
+  }
+  enemyHealthBar.value = +enemyHealthBar.value - dealtDamage;
+  return dealtDamage;
+}
+
+//ADICIONAR FATOR ENEMY LVL NO FUTURO
+function dealPlayerDamage(damage) {
+  const dealtDamage = parseInt(getRandom(0.5, 1) * damage);
+  playerHealthBar.value = +playerHealthBar.value - dealtDamage;
+  return dealtDamage;
+}
+
+//Usadas para teste das escalas de vida e mana
 function assignStatPointHP() {
   assignStatPoint(statHP);
 }
