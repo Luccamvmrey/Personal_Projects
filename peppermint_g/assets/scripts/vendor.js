@@ -60,11 +60,18 @@ function adjustBars(baseBarValue) {
   barToValueMP();
 }
 
+function clearNotif() {
+  notifWasKilled.innerHTML = ''
+  notifDropped.innerHTML = ''
+  notifExtra.innerHTML = ''
+}
+
 function getNewEnemy(name, lvl) {
   enemyName.innerHTML = name;
   enemyLvl.innerHTML = lvl; 
   notifAppeared.innerHTML = `Lvl ${lvl} ${name} has appeared!!`
   enemyHealthBar.value = baseBarValue;
+  currentEnemyHealth = enemyHealthBar.value;
 }
 
 //Define como vida escala conforme níveis
