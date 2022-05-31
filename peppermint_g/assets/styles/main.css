@@ -41,6 +41,13 @@ main {
   border-radius: 16px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  grid-template-rows:  32px 32px auto;
+}
+
+#xp {
+  grid: 1;
+  grid-column: 1 / -1;
+  text-align: center;
 }
 
 progress {
@@ -53,20 +60,21 @@ progress {
   margin: 8px 8px;
   border: 2.3px solid #7A4500;
   place-self: start center;
+  grid-row: 2;
 }
 
 #enemy-health {
   width: 160px;
   height: 12px;
+  place-self: center;
+}
+
+#player-xp {
+  width: 484px;
 }
 
 progress[value]::-webkit-progress-bar,
 progress[value] {
-  background-color: rgba(255, 255, 255, 0.05);
-}
-
-#player-mana[value]::-webkit-progress-bar,
-#player-mana[value] {
   background-color: rgba(255, 255, 255, 0.05);
 }
 
@@ -80,6 +88,10 @@ progress[value]::-webkit-progress-value {
   background-color: #4166f5;
 }
 
+#player-xp[value]::-webkit-progress-value {
+  background-color: #3cdfff;
+}
+
 progress[value]::-moz-progress-bar {
   /* background-color: #fc2e20; */
   transition: all 0.2s ease-out;
@@ -91,6 +103,7 @@ progress[value]::-moz-progress-bar {
   flex-direction: column;
   align-items: center;
   place-self: start center;
+  margin-top: 32px;
 }
 
 #enemy img {
@@ -105,7 +118,8 @@ progress[value]::-moz-progress-bar {
 }
 
 #hero img {
-  width: 128px;
+  width: 156px;
+  margin-bottom: 16px;
 }
 
 #controls {

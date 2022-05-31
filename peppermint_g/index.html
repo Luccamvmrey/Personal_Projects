@@ -14,6 +14,9 @@
 <body>
   <main>
     <section id="screen">
+      <div id="xp">
+        <progress id="player-xp" max="150" value="0">100%</progress>
+      </div>
       <progress id="player-health" max="100" value="100">100%</progress>
       <progress id="player-mana" max="100" value="100">100%</progress>
       <div id="enemy">
@@ -32,8 +35,8 @@
           <div class="title">These are your stats:</div>
           <div>Life: <span id="life-current"></span>/<span id="life-max"></span></div>
           <div>Mana: <span id="mana-current"></span>/<span id="mana-max"></span></div>
+          <div>XP: <span id="xp-current"></span>/<span id="xp-max"></span></div>
           <div>Health Points: <span id="sts-hp"></span></div>
-          <div>Magic Points: <span id="sts-mp"></span></div>
           <div>Strenght: <span id="sts-strength"></span></div>
           <div>Speed: <span id="sts-speed"></span></div>
           <div>Toughness: <span id="sts-toughness"></span></div>
