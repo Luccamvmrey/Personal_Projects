@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="assets/styles/main.css">
   <script src="/assets/scripts/vendor.js" defer></script>
   <script src="/assets/scripts/app.js" defer></script>
+  <script src="/assets/scripts/css-func.js" defer></script>
 </head>
 
 <body>
@@ -25,6 +26,7 @@
         <img src="/assets/images/pngwing.com.png" alt="">
       </div>
       <div id="hero">
+        <h2><span id="player-name"></span> - Lvl <span id="player-lvl"></span></h2>
         <img src="/assets/images/hero.png.png" alt="">
       </div>
     </section>
@@ -44,7 +46,7 @@
         <div id="divide-bar"></div>
         <div id="notification">
           <div class="title">Notifications:</div>
-          <div id="not-01"></div> 
+          <div id="not-01"></div>
           <div id="not-02">CONCLUIR FUNÇÃO DE XP, MELHORAR LÓGICA DE MORTE HOJE!</div>
           <div id="not-03"></div>
           <div id="not-04"></div>
@@ -57,10 +59,66 @@
       <button id="action-btn">Action</button>
     </section>
   </main>
-  <aside id="randomshit">
-   <h1>Whole Load o' Shit Bar</h1>
-   <button id="test-HP-UP"> Press to UP your HP</button> 
-   <button id="test-MP-UP"> Press to UP your MP</button> 
+  <aside id="sidebar">
+    <div id="map" class="">
+      <div class="handle" id="map-handle">
+        <p>Map</p>
+      </div>
+      <div class="content-holder">
+        <div class="content">
+          <h1>Here's your map:</h1>
+          <h2>Unfortunately there is nothing here yet. Come back in a few days and it might be done!</h2>
+          <h2>What you might expect:</h2>
+          <ul>
+            <li>
+              A whole world to explore, even though it isn't big, it'll be fun!
+            </li>
+            <li>
+              Coordinates so you won't get lost!
+            </li>
+            <li>
+              Villages and places to rest and trade!
+            </li>
+            <li>
+              Different dungeons and shit like that! (fucking rad)
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="skills" class="">
+      <div class="handle" id="skills-handle">
+        <p>Skills</p>
+      </div>
+      <div class="content-holder">
+        <div class="content">
+          <h1>Here are your skills:</h1>
+        </div>
+      </div>
+    </div>
+    <div id="inventory" class="">
+      <div class="handle" id="inventory-handle">
+        <p>Inventory</p>
+      </div>
+      <div class="content-holder">
+        <div class="content">
+          <h1>Here's your inventory:</h1>
+          <h2>Unfortunately there is nothing here yet. Come back in a few days and it might be done!</h2>
+          <h2>What you might expect:</h2>
+          <ul>
+            <li>
+              A bunch of items, armor and weapons for you to use!
+            </li>
+            <li>
+              This one's gonna be awesome, I just gotta figure the details out!
+            </li>
+            <li>
+              Trust me bro.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </aside>
 </body>
 

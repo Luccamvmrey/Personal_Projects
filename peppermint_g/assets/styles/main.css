@@ -16,10 +16,11 @@ body {
   height: 100%;
   display: grid;
   grid-template-columns: 612px auto;
+  gap: 88px;
 }
 
 main {
-  height: 80%;
+  height: 762px;
   margin: 16px;
   border-radius: 16px;
   background: #560303;
@@ -113,6 +114,7 @@ progress[value]::-moz-progress-bar {
 
 #hero {
   display: flex;
+  flex-direction: column;
   align-items: center;
   place-self: end center;
 }
@@ -181,3 +183,84 @@ button {
   border: none;
   color: #3A2501;
 }
+
+#sidebar {
+  position: relative;
+}
+
+#sidebar > div {
+  width: 464px;
+  height: 464px;
+  margin: 16px;
+  background: #560303;
+  border: 3px solid #7A4500;
+  border-radius: 16px;
+  display: flex;
+  position: absolute;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+#sidebar .handle {
+  width: 38px;
+  height: 96px;
+  background: #560303;
+  border: 3px solid #7A4500;
+  border-right: none;
+  border-radius: 8px 0 0 8px;
+  margin: 0;
+  margin-left: -38px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+}
+
+#sidebar p {
+  color: #e5b445;
+  transform: rotateZ(90deg);
+  text-align: center;
+}
+
+#map .handle {
+  margin-top: 16px;
+}
+
+#skills .handle {
+  margin-top: 128px;
+}
+
+#inventory .handle {
+  margin-top: 240px;
+}
+
+.content-holder {
+  width: 464px;
+  height: 458px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  width: 400px;
+  height: 400px;
+  background: #e5b445;
+  border: 2px solid #7A4500;
+  border-radius: 16px;
+  padding: 32px;
+}
+
+.content h1 {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.content h2 {
+  font-weight: 400;
+}
+
+.open {
+  z-index: 10;
+}
+
