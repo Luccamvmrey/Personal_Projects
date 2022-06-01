@@ -37,5 +37,3 @@ function openInventory() {
 mapHandle.addEventListener('click', openMap);
 skillsHandle.addEventListener('click', openSkills);
 inventoryHandle.addEventListener('click', openInventory);
-
-//alert

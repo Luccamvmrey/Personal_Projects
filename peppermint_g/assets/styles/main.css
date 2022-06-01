@@ -248,7 +248,7 @@ button {
   background: #e5b445;
   border: 2px solid #7A4500;
   border-radius: 16px;
-  padding: 32px;
+  padding: 16px;
 }
 
 .content h1 {
@@ -258,6 +258,50 @@ button {
 
 .content h2 {
   font-weight: 400;
+}
+
+.skill__content {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows:  1fr 16px repeat(9, 1fr);
+}
+
+#crt-lvl {
+  grid-column: 1/5;
+  place-self: end start;
+}
+
+#spa {
+  grid-column: 5/11;
+  place-self: end start;
+}
+
+#vit-skill {
+  grid-column: 1/-1;
+  grid-row: 3;
+  place-self: end start;
+}
+
+#str-skill {
+  grid-column: 1/-1;
+  grid-row: 5;
+  place-self: end start;
+}
+
+#spd-skill {
+  grid-column: 1/-1;
+  grid-row: 7;
+  place-self: end start;
+}
+
+#tgh-skill {
+  grid-column: 1/-1;
+  grid-row: 9;
+  place-self: end start;
+}
+
+.carjack {
+  z-index: 2;
 }
 
 .open {

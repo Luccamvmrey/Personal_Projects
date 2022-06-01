@@ -26,7 +26,7 @@
         <img src="/assets/images/pngwing.com.png" alt="">
       </div>
       <div id="hero">
-        <h2><span id="player-name"></span> - Lvl <span id="player-lvl"></span></h2>
+        <h2><span id="player-name"></span></h2>
         <img src="/assets/images/hero.png.png" alt="">
       </div>
     </section>
@@ -38,7 +38,7 @@
           <div>Life: <span id="life-current"></span>/<span id="life-max"></span></div>
           <div>Mana: <span id="mana-current"></span>/<span id="mana-max"></span></div>
           <div>XP: <span id="xp-current"></span>/<span id="xp-max"></span></div>
-          <div>Health Points: <span id="sts-hp"></span></div>
+          <div>Vitality: <span id="sts-hp"></span></div>
           <div>Strenght: <span id="sts-strength"></span></div>
           <div>Speed: <span id="sts-speed"></span></div>
           <div>Toughness: <span id="sts-toughness"></span></div>
@@ -86,13 +86,18 @@
         </div>
       </div>
     </div>
-    <div id="skills" class="">
+    <div id="skills" class="carjack">
       <div class="handle" id="skills-handle">
         <p>Skills</p>
       </div>
       <div class="content-holder">
-        <div class="content">
-          <h1>Here are your skills:</h1>
+        <div class="content skill__content">
+          <h2 id="crt-lvl">Current Level: <span id="player-lvl"></span></h2>
+          <h2 id="spa">Skill points available:</h2>
+          <h2 id="vit-skill">Vitality:</h2>
+          <h2 id="str-skill">Strenght:</h2>
+          <h2 id="spd-skill">Speed:</h2>
+          <h2 id="tgh-skill">Toughness:</h2>
         </div>
       </div>
     </div>
