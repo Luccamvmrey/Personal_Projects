@@ -16,15 +16,19 @@ getNewEnemy("Lil'Shit", 1);
 
 function endFight() {
   if (currentEnemyHealth <= 0 && currentPlayerHealth > 0) {
-    notifAppeared.innerHTML = '';
+    clearNotif();
+    getXP(enemyLvl);
     notifWasKilled.innerHTML = `Lvl ${currentEnemyLvl} ${currentEnemyName} was killed!`;
     winHeal();
-    setTimeout(getNewEnemy, 2500, "Sligthly Bigger Shit", 2);
-    setTimeout(clearNotif, 2400);
+    setTimeout(clearNotif, 3400);
+    setTimeout(getNewEnemy, 3500, "Sligthly Bigger Shit", 2);
+
   } else if (currentPlayerHealth <= 0 && currentEnemyHealth > 0) { //MELHORAR LÓGICA DE MORTE AMANHÃ
     notifWasKilled.innerHTML = "Lvl 1 Lil' Shit massacred the player!";
+
   } else if (currentPlayerHealth <= 0 && currentEnemyHealth <= 0) {
     notifWasKilled.innerHTML = "You both fell!";
+
   }
 }
 

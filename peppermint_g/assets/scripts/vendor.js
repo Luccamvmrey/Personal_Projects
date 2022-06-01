@@ -2,22 +2,31 @@ const playerHealthBar = document.getElementById("player-health");
 const playerManaBar = document.getElementById("player-mana");
 const enemyHealthBar = document.getElementById("enemy-health");
 
+//notifications
 let notifAppeared = document.getElementById("not-01");
 let notifWasKilled = document.getElementById("not-02");
 let notifDropped = document.getElementById("not-03");
 let notifExtra = document.getElementById("not-04");
+
+//life mana xp
 let lifeMax = document.getElementById("life-max");
 let lifeCurrent = document.getElementById("life-current");
 let manaMax = document.getElementById("mana-max");
 let manaCurrent = document.getElementById("mana-current");
 let xpMax = document.getElementById("xp-max");
 let xpCurrent = document.getElementById("xp-current");
+
+//stats
 let statHP = document.getElementById("sts-hp");
 let statStrenght = document.getElementById("sts-strength");
 let statSpeed = document.getElementById("sts-speed");
 let statToughness = document.getElementById("sts-toughness");
+
+//enemy details
 let enemyName = document.getElementById("enemy-name");
 let enemyLvl = document.getElementById("enemy-lvl");
+
+let isEnemyDead;
 
 const startingStatLevel = 1;
 
@@ -25,11 +34,6 @@ const attackBtn = document.getElementById("attack-btn");
 const specMoveBtn = document.getElementById("spec-move-btn");
 const parryBtn = document.getElementById("parry-btn");
 const actionBtn = document.getElementById("action-btn");
-
-//Debug Buttons
-const debugHPBtn = document.getElementById("test-HP-UP");
-const debugMPBtn = document.getElementById("test-MP-UP");
-//
 
 let currentEnemyName;
 let currentEnemyLvl;
@@ -69,9 +73,10 @@ function adjustBars(baseBarValue) {
 }
 
 function clearNotif() {
-  notifWasKilled.innerHTML = ''
-  notifDropped.innerHTML = ''
-  notifExtra.innerHTML = ''
+  notifAppeared.innerHTML = '';
+  notifWasKilled.innerHTML = '';
+  notifDropped.innerHTML = '';
+  notifExtra.innerHTML = '';
 }
 
 function getNewEnemy(name, lvl) {
@@ -166,4 +171,3 @@ assignStartingStat(statStrenght);
 assignStartingStat(statSpeed);
 assignStartingStat(statToughness);
 
-debugHPBtn.addEventListener("click", assignStatPointHP);
