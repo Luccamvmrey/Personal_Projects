@@ -15,7 +15,7 @@ html {
 body {
   height: 100%;
   display: grid;
-  grid-template-columns: 612px auto;
+  grid-template-columns: repeat(2, 612px);
   gap: 88px;
 }
 

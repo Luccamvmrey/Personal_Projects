@@ -73,18 +73,18 @@ function adjustBars(baseBarValue) {
 }
 
 function clearNotif() {
-  notifAppeared.innerHTML = '';
-  notifWasKilled.innerHTML = '';
-  notifDropped.innerHTML = '';
-  notifExtra.innerHTML = '';
+  notifAppeared.innerHTML = "";
+  notifWasKilled.innerHTML = "";
+  notifDropped.innerHTML = "";
+  notifExtra.innerHTML = "";
 }
 
 function getNewEnemy(name, lvl) {
   currentEnemyName = name;
   currentEnemyLvl = lvl;
   enemyName.innerHTML = name;
-  enemyLvl.innerHTML = lvl; 
-  notifAppeared.innerHTML = `Lvl ${lvl} ${name} has appeared!!`
+  enemyLvl.innerHTML = lvl;
+  notifAppeared.innerHTML = `Lvl ${lvl} ${name} has appeared!!`;
   enemyHealthBar.value = baseBarValue;
   currentEnemyHealth = enemyHealthBar.value;
 }
@@ -110,28 +110,49 @@ function assignStartingStat(stat) {
 function assignStatPoint(stat) {
   stat.value += +1;
   stat.innerHTML = stat.value;
-  if (stat === statHP) { //Caso stat seja HP, escala a vida e informa em stats novamente
+  if (stat === statHP) {
+    //Caso stat seja HP, escala a vida e informa em stats novamente
     upHP(baseBarValue);
     barToValueHP();
   }
 }
 
 function dealEnemyDamage(damage) {
-  let dealtDamage; 
+  let dealtDamage;
   if (statStrenght.value === 1) {
     dealtDamage = parseInt(getRandom(0.5, 1) * damage);
-  } else if ( statStrenght.value === 2) {
-    dealtDamage = parseInt(getRandom(0.5, 1) * damage * (statStrenght.value / 1.5));
+  } else if (statStrenght.value === 2) {
+    dealtDamage = parseInt(
+      getRandom(0.5, 1) * damage * (statStrenght.value / 1.5)
+    );
   } else {
-    dealtDamage = parseInt(getRandom(0.5, 1) * damage * (statStrenght.value / 2));
+    dealtDamage = parseInt(
+      getRandom(0.5, 1) * damage * (statStrenght.value / 2)
+    );
   }
   enemyHealthBar.value = +enemyHealthBar.value - dealtDamage;
   return dealtDamage;
 }
 
-//CONLUIR FUNÇÃO DE XP AMANHÃ
-function getXP(enemyLvl) {
-  
+//DESENVOLVER FUNÇÃO DE XP!
+function getXP() {
+  notifDropped.innerHTML = `You earned ${calcXP(5, 2)}xp!!`;
+}
+
+function calcXP(enemyLvl, playerLvl) {
+  let xpValue;
+  if (enemyLvl >= playerLvl + 2) {
+    xpValue = 20;
+  } else if (enemyLvl > playerLvl) {
+    xpValue = 15;
+  } else if (enemyLvl === playerLvl) {
+    xpValue = 10;
+  } else if (enemyLvl >= playerLvl - 2) {
+    xpValue = 5;
+  } else if (enemyLvl < playerLvl - 2) {
+    xpValue = 0;
+  }
+  return xpValue;
 }
 
 //ADICIONAR FATOR ENEMY LVL NO FUTURO
@@ -170,4 +191,3 @@ assignStartingStat(statHP);
 assignStartingStat(statStrenght);
 assignStartingStat(statSpeed);
 assignStartingStat(statToughness);
-
