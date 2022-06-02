@@ -1,0 +1,168 @@
+#sidebar {
+  position: relative;
+}
+
+#sidebar > div {
+  width: 464px;
+  height: 464px;
+  margin: 16px;
+  background: #560303;
+  border: 3px solid #7A4500;
+  border-radius: 16px;
+  display: flex;
+  position: absolute;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+#sidebar .handle {
+  width: 38px;
+  height: 96px;
+  background: #560303;
+  border: 3px solid #7A4500;
+  border-right: none;
+  border-radius: 8px 0 0 8px;
+  margin: 0;
+  margin-left: -38px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+}
+
+#sidebar p {
+  color: #e5b445;
+  transform: rotateZ(90deg);
+  text-align: center;
+}
+
+#map .handle {
+  margin-top: 16px;
+}
+
+#skills .handle {
+  margin-top: 128px;
+}
+
+#inventory .handle {
+  margin-top: 240px;
+}
+
+.content-holder {
+  width: 464px;
+  height: 458px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  width: 400px;
+  height: 400px;
+  background: #e5b445;
+  border: 2px solid #7A4500;
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.content h1 {
+  font-size: 24px;
+  margin-bottom: 14px;
+}
+
+.content h2 {
+  font-weight: 400;
+}
+
+.skill__content {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows:  1fr 16px repeat(9, 1fr);
+}
+
+#crt-lvl {
+  grid-column: 1/5;
+  place-self: end start;
+}
+
+#spa {
+  grid-column: 5/11;
+  place-self: end start;
+}
+
+#vit-attributes {
+  grid-column: 1/-1;
+  grid-row: 3;
+  place-self: end start;
+}
+
+#vit-skills {
+  grid-row: 4;
+}
+
+#str-attributes {
+  grid-column: 1/-1;
+  grid-row: 5;
+  place-self: end start;
+}
+
+#str-skills {
+  grid-row: 6;
+}
+
+#spd-attributes {
+  grid-column: 1/-1;
+  grid-row: 7;
+  place-self: end start;
+}
+
+#spd-skills {
+  grid-row: 8;
+}
+
+#tgh-attributes {
+  grid-column: 1/-1;
+  grid-row: 9;
+  place-self: end start;
+}
+
+#tgh-skills {
+  grid-row: 10;
+}
+
+.skill {
+  width: 100%;
+  height: 100%;
+  border: 2px solid #7A4500;
+  border-radius: 8px;
+  grid-column: 2/8;
+  place-self: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #560303;
+}
+
+.skill > div {
+  width: 90%;
+  height: 90%;
+  text-align: center;
+}
+
+.skill img {
+  width: 36px;
+  border: 2px solid transparent;
+}
+
+.skill img:hover {
+  border: 2px solid #e5b445;
+  border-radius: 8px;
+}
+
+.carjack {
+  z-index: 2;
+}
+
+.open {
+  z-index: 10;
+}
