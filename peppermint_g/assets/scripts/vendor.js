@@ -19,6 +19,7 @@ let xpCurrent = document.getElementById("xp-current");
 
 //stats
 let playerName = document.getElementById("player-name");
+let skillPoints = document.getElementById("skill-points");
 let playerLvl_01 = document.getElementById("player-lvl_01");
 let playerLvl_02 = document.getElementById("player-lvl_02");
 let statHP = document.getElementById("sts-hp");
@@ -126,9 +127,9 @@ function assignStatPoint(stat) {
 
 function assignLevel(value) {
   playerLvl_01.value = value;
-  playerLvl_01.innerHTML = value;
+  playerLvl_01.innerHTML = playerLvl_01.value;
   playerLvl_02.value = value;
-  playerLvl_02.innerHTML = value;
+  playerLvl_02.innerHTML = playerLvl_01.value;
 }
 
 function dealEnemyDamage(damage) {
@@ -152,13 +153,16 @@ function dealEnemyDamage(damage) {
 function getXP() {
   let xpValue = parseInt(calcXP(currentEnemyLvl, currentPlayerLvl))
   playerXPBar.value += xpValue
+  xpCurrent.innerHTML = playerXPBar.value 
   notifDropped.innerHTML = `You earned ${xpValue}xp!`
 
   if(playerXPBar.value >= playerXPBar.max) {
     let sumBarValue = playerXPBar.value + xpValue;
     currentPlayerLvl += +1;
     assignLevel(currentPlayerLvl);
-    playerXPBar.value = sumBarValue - playerXPBar.max;  
+    giveSkillPoint();
+    playerXPBar.value = sumBarValue - playerXPBar.max;
+    xpCurrent.innerHTML = playerXPBar.value  
   } 
 }
 
