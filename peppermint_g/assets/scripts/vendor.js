@@ -1,6 +1,7 @@
 const playerHealthBar = document.getElementById("player-health");
 const playerManaBar = document.getElementById("player-mana");
 const enemyHealthBar = document.getElementById("enemy-health");
+const playerXPBar = document.getElementById("player-xp");
 
 //notifications
 let notifAppeared = document.getElementById("not-01");
@@ -17,6 +18,8 @@ let xpMax = document.getElementById("xp-max");
 let xpCurrent = document.getElementById("xp-current");
 
 //stats
+let playerLvl_01 = document.getElementById("player-lvl_01");
+let playerLvl_02 = document.getElementById("player-lvl_02");
 let statHP = document.getElementById("sts-hp");
 let statStrenght = document.getElementById("sts-strength");
 let statSpeed = document.getElementById("sts-speed");
@@ -26,9 +29,8 @@ let statToughness = document.getElementById("sts-toughness");
 let enemyName = document.getElementById("enemy-name");
 let enemyLvl = document.getElementById("enemy-lvl");
 
-let isEnemyDead;
-
 const startingStatLevel = 1;
+const startingLevel = startingStatLevel;
 
 const attackBtn = document.getElementById("attack-btn");
 const specMoveBtn = document.getElementById("spec-move-btn");
@@ -37,6 +39,7 @@ const actionBtn = document.getElementById("action-btn");
 
 let currentEnemyName;
 let currentEnemyLvl;
+let currentPlayerLvl = startingLevel;
 
 function getRandom(min, max) {
   return Math.random() * (max - min) + min;
@@ -56,9 +59,10 @@ function barToValueMP() {
   currentPlayerMana = parseInt(playerManaBar.max);
 }
 
-// function barToValueXP() {
-
-// }
+function barToValueXP() {
+  xpMax.innerHTML = parseInt(playerXPBar.max);
+  xpCurrent.innerHTML = parseInt(playerXPBar.value);
+}
 
 //Ajusta valores iniciais para as barras e informa em stats
 function adjustBars(baseBarValue) {
@@ -70,6 +74,7 @@ function adjustBars(baseBarValue) {
   playerManaBar.value = baseBarValue;
   barToValueHP();
   barToValueMP();
+  barToValueXP();
 }
 
 function clearNotif() {
@@ -117,6 +122,13 @@ function assignStatPoint(stat) {
   }
 }
 
+function assignLevel(value) {
+  playerLvl_01.value = value;
+  playerLvl_01.innerHTML = value;
+  playerLvl_02.value = value;
+  playerLvl_02.innerHTML = value;
+}
+
 function dealEnemyDamage(damage) {
   let dealtDamage;
   if (statStrenght.value === 1) {
@@ -136,21 +148,28 @@ function dealEnemyDamage(damage) {
 
 //DESENVOLVER FUNÇÃO DE XP!
 function getXP() {
-  notifDropped.innerHTML = `You earned ${calcXP(5, 2)}xp!!`;
+  let xpValue = parseInt(calcXP(currentEnemyLvl, currentPlayerLvl))
+  playerXPBar.value += xpValue
+
+  if(playerXPBar.value >= playerXPBar.max) {
+    let sumBarValue = playerXPBar.value + xpValue;
+    currentPlayerLvl += +1;
+    assignLevel(currentPlayerLvl);
+    playerXPBar.value = sumBarValue - playerXPBar.max;  
+  } 
 }
 
-function calcXP(enemyLvl, playerLvl) {
+
+
+function calcXP(eV, pV) {
+  let difE = eV - pV;
   let xpValue;
-  if (enemyLvl >= playerLvl + 2) {
-    xpValue = 20;
-  } else if (enemyLvl > playerLvl) {
-    xpValue = 15;
-  } else if (enemyLvl === playerLvl) {
-    xpValue = 10;
-  } else if (enemyLvl >= playerLvl - 2) {
-    xpValue = 5;
-  } else if (enemyLvl < playerLvl - 2) {
-    xpValue = 0;
+  if (eV < pV && (difE) > -2) {
+    xpValue = 5 + (difE) * 5;
+  } else if (eV >= pV) {
+    xpValue = 10 + (difE) * 5;
+  } else {
+    xpValue = 0
   }
   return xpValue;
 }
@@ -186,7 +205,7 @@ function assignStatPointHP() {
 }
 
 //
-
+assignLevel(startingLevel);
 assignStartingStat(statHP);
 assignStartingStat(statStrenght);
 assignStartingStat(statSpeed);

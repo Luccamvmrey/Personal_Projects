@@ -17,12 +17,11 @@ getNewEnemy("Lil'Shit", 1);
 function endFight() {
   if (currentEnemyHealth <= 0 && currentPlayerHealth > 0) {
     clearNotif();
-    getXP(enemyLvl);
     notifWasKilled.innerHTML = `Lvl ${currentEnemyLvl} ${currentEnemyName} was killed!`;
     winHeal();
     setTimeout(clearNotif, 3400);
     setTimeout(getNewEnemy, 3500, "Sligthly Bigger Shit", 2);
-
+    getXP();
   } else if (currentPlayerHealth <= 0 && currentEnemyHealth > 0) { //MELHORAR LÓGICA DE MORTE AMANHÃ
     notifWasKilled.innerHTML = "Lvl 1 Lil' Shit massacred the player!";
 

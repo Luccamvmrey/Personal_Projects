@@ -17,7 +17,7 @@
   <main>
     <section id="screen">
       <div id="xp">
-        <progress id="player-xp" max="150" value="0">100%</progress>
+        <progress id="player-xp" max="200" value="0">100%</progress>
       </div>
       <progress id="player-health" max="100" value="100">100%</progress>
       <progress id="player-mana" max="100" value="100">100%</progress>
@@ -27,12 +27,11 @@
         <img src="/assets/images/pngwing.com.png" alt="">
       </div>
       <div id="hero">
-        <h2><span id="player-name"></span></h2>
+        <h2><span id="player-name">- Lvl <span id="player-lvl_01"></span></span></h2>
         <img src="/assets/images/hero.png.png" alt="">
       </div>
     </section>
     <section id="controls">
-
       <div id="snd-screen">
         <div id="stats">
           <div class="title">These are your stats:</div>
@@ -53,7 +52,6 @@
           <div id="not-04"></div>
         </div>
       </div>
-
       <button id="attack-btn">Attack</button>
       <button id="spec-move-btn">Special Move</button>
       <button id="parry-btn">Parry</button>
@@ -87,13 +85,13 @@
         </div>
       </div>
     </div>
-    <div id="skills" class="">
+    <div id="skills" class="carjack">
       <div class="handle" id="skills-handle">
         <p>Skills</p>
       </div>
       <div class="content-holder">
         <div class="content skill__content">
-          <h2 id="crt-lvl">Current Level: <span id="player-lvl"></span></h2>
+          <h2 id="crt-lvl">Current Level: <span id="player-lvl_02"></span></h2>
           <h2 id="spa">Skill points available:</h2>
           <h2 id="vit-attributes">Vitality:</h2>
           <div id="vit-skills" class="skill">
@@ -140,7 +138,7 @@
         </div>
       </div>
     </div>
-    <div id="inventory" class="carjack">
+    <div id="inventory" class="">
       <div class="handle" id="inventory-handle">
         <p>Inventory</p>
       </div>
