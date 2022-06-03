@@ -11,6 +11,8 @@ let currentEnemyHealth = enemyHealthBar.value;
 let currentPlayerHealth = playerHealthBar.value;
 let currentPlayerMana = playerManaBar.value;
 
+playerName.innerHTML = "DJ Rogerinho"
+
 adjustBars(baseBarValue);
 getNewEnemy("Lil'Shit", 1);
 
@@ -19,10 +21,10 @@ function endFight() {
     clearNotif();
     notifWasKilled.innerHTML = `Lvl ${currentEnemyLvl} ${currentEnemyName} was killed!`;
     winHeal();
+    getXP();
     setTimeout(clearNotif, 3400);
     setTimeout(getNewEnemy, 3500, "Sligthly Bigger Shit", 2);
-    getXP();
-  } else if (currentPlayerHealth <= 0 && currentEnemyHealth > 0) { //MELHORAR LÓGICA DE MORTE AMANHÃ
+  } else if (currentPlayerHealth <= 0 && currentEnemyHealth > 0) { 
     notifWasKilled.innerHTML = "Lvl 1 Lil' Shit massacred the player!";
 
   } else if (currentPlayerHealth <= 0 && currentEnemyHealth <= 0) {

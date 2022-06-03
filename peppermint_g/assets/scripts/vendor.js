@@ -1,7 +1,7 @@
 const playerHealthBar = document.getElementById("player-health");
 const playerManaBar = document.getElementById("player-mana");
-const enemyHealthBar = document.getElementById("enemy-health");
 const playerXPBar = document.getElementById("player-xp");
+const enemyHealthBar = document.getElementById("enemy-health");
 
 //notifications
 let notifAppeared = document.getElementById("not-01");
@@ -18,6 +18,7 @@ let xpMax = document.getElementById("xp-max");
 let xpCurrent = document.getElementById("xp-current");
 
 //stats
+let playerName = document.getElementById("player-name");
 let playerLvl_01 = document.getElementById("player-lvl_01");
 let playerLvl_02 = document.getElementById("player-lvl_02");
 let statHP = document.getElementById("sts-hp");
@@ -146,10 +147,11 @@ function dealEnemyDamage(damage) {
   return dealtDamage;
 }
 
-//DESENVOLVER FUNÇÃO DE XP!
+//Funções de XP
 function getXP() {
   let xpValue = parseInt(calcXP(currentEnemyLvl, currentPlayerLvl))
   playerXPBar.value += xpValue
+  notifDropped.innerHTML = `You earned ${xpValue}xp!`
 
   if(playerXPBar.value >= playerXPBar.max) {
     let sumBarValue = playerXPBar.value + xpValue;
@@ -158,8 +160,6 @@ function getXP() {
     playerXPBar.value = sumBarValue - playerXPBar.max;  
   } 
 }
-
-
 
 function calcXP(eV, pV) {
   let difE = eV - pV;
