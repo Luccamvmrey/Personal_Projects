@@ -37,6 +37,7 @@ const attackBtn = document.getElementById("attack-btn");
 const specMoveBtn = document.getElementById("spec-move-btn");
 const parryBtn = document.getElementById("parry-btn");
 const actionBtn = document.getElementById("action-btn");
+const nameBtn = document.getElementById("change-name");
 
 let currentEnemyName;
 let currentEnemyLvl;
@@ -204,9 +205,15 @@ function assignStatPointHP() {
   clearNotif();
 }
 
+function changeName() {
+  playerName.innerHTML = prompt("Tell us your name:")
+}
+
 //
 assignLevel(startingLevel);
 assignStartingStat(statHP);
 assignStartingStat(statStrenght);
 assignStartingStat(statSpeed);
 assignStartingStat(statToughness);
+
+nameBtn.addEventListener("click", changeName);

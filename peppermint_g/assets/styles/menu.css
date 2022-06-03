@@ -159,6 +159,15 @@
   border-radius: 8px;
 }
 
+.name-change {
+  margin-top: 64px;
+  text-align: center;
+}
+
+#change-name {
+  width: 60%;
+}
+
 .carjack {
   z-index: 2;
 }

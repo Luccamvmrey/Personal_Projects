@@ -11,8 +11,6 @@ let currentEnemyHealth = enemyHealthBar.value;
 let currentPlayerHealth = playerHealthBar.value;
 let currentPlayerMana = playerManaBar.value;
 
-playerName.innerHTML = "DJ Rogerinho"
-
 adjustBars(baseBarValue);
 getNewEnemy("Lil'Shit", 1);
 
