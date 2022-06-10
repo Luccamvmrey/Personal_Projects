@@ -2,7 +2,7 @@ const baseBarValue = 100;
 const stdAttackValue = 50;
 const specialMoveValue = 15;
 const enemyAttackValue = 12; //FAZER ESCALAR COM ENEMY LVL NO FUTURO
-const winHealValue = parseInt(playerHealthBar.max * 0.5)
+const winHealValue = parseInt(playerHealthBar.max * 0.5);
 
 const stdAttack = "standard_attack";
 const specialMove = "special_move";
@@ -14,35 +14,52 @@ let currentPlayerMana = playerManaBar.value;
 adjustBars(baseBarValue);
 getNewEnemy("Lil'Shit", 1);
 
-function endFight() {
-  if (currentEnemyHealth <= 0 && currentPlayerHealth > 0) {
-    clearNotif();
-    notifWasKilled.innerHTML = `Lvl ${currentEnemyLvl} ${currentEnemyName} was killed!`;
-    winHeal();
-    getXP();
-    setTimeout(clearNotif, 3400);
-    setTimeout(getNewEnemy, 3500, "Sligthly Bigger Shit", 2);
-  } else if (currentPlayerHealth <= 0 && currentEnemyHealth > 0) { 
-    notifWasKilled.innerHTML = "Lvl 1 Lil' Shit massacred the player!";
-
-  } else if (currentPlayerHealth <= 0 && currentEnemyHealth <= 0) {
-    notifWasKilled.innerHTML = "You both fell!";
-
-  }
-}
-
 function attackEnemy(mode) {
   let maxDamage;
+  let hasAttacked = false;
   if (mode === stdAttack) {
     maxDamage = stdAttackValue;
   } else if (mode === specialMove) {
     maxDamage = specialMoveValue;
   }
-  const playerDamage = dealEnemyDamage(maxDamage);
-  currentEnemyHealth -= playerDamage;
-  const enemyDamage = dealPlayerDamage(enemyAttackValue);
-  currentPlayerHealth -= enemyDamage;
-  lifeCurrent.innerHTML = currentPlayerHealth;
+
+  let oldEnemyHealth = currentEnemyHealth;
+  let testDamage;
+  function playerAttack() {
+    const playerDamage = dealEnemyDamage(maxDamage);
+    currentEnemyHealth -= playerDamage;
+    testDamage = playerDamage
+    pAttackAnimation();
+    hasAttacked = true;
+    checkEnd();
+    endFight();
+  }
+
+  function enemyAttack() {
+    const enemyDamage = dealPlayerDamage(enemyAttackValue);
+    currentPlayerHealth -= enemyDamage;
+    lifeCurrent.innerHTML = currentPlayerHealth;
+    eAttackAnimation();
+    hasAttacked = false;
+    checkEnd();
+  }
+
+  function checkEnd() {
+    if (hasAttacked) {
+      attackBtn.disabled = true;
+    } else if (!hasAttacked) {
+      attackBtn.disabled = false;
+    }
+  }
+
+  playerAttack();
+  if (!isEnemyDead(oldEnemyHealth ,testDamage)) {
+    setTimeout(enemyAttack, 750);
+  } else {
+    hasAttacked = false;
+    checkEnd();
+    return;
+  }
   endFight();
 }
 

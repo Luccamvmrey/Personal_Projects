@@ -184,5 +184,66 @@ button {
   color: #3A2501;
 }
 
+.animate-p_attack {
+  animation-name: player-attack;
+  animation-duration: 500ms;
+  animation-iteration-count: 1;
+}
 
+.animate-e_damage {
+ animation-name: enemy-damage;
+ animation-duration: 350ms;
+ animation-iteration-count: 1;
+ animation-delay: 200ms;
+}
 
+.animate-e_attack {
+  animation-name: enemy-attack;
+  animation-duration: 500ms;
+  animation-iteration-count: 1;
+}
+
+.animate-p_damage {
+  animation-name: player-damage;
+  animation-duration: 350ms;
+  animation-iteration-count: 1;
+  animation-delay: 200ms;
+ }
+
+.animate-e_death {
+  animation-name: e-death;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+}
+
+@keyframes player-attack {
+  0% {transform: translate3d(0, 0, 0);}
+  50% {transform: translate3d(-170px, -25px, 0);}
+  75% {transform: translate3d(0, 0, 0);}
+}
+
+@keyframes enemy-damage {
+  0% {transform: translate3d(0, 0, 0);}
+  50% {transform: translate3d(-40px, 0, 0);}
+  100% {transform: translate3d(0, 0, 0);}
+}
+
+@keyframes enemy-attack {
+  0% {transform: translate3d(0, 0, 0);}
+  50% {transform: translate3d(170px, 25px, 0);}
+  75% {transform: translate3d(0, 0, 0);}
+}
+
+@keyframes player-damage {
+  0% {transform: translate3d(0, 0, 0);}
+  50% {transform: translate3d(40px, 0, 0);}
+  100% {transform: translate3d(0, 0, 0);}
+}
+
+@keyframes e-death {
+  0% {opacity: 100%;}
+  25% {opacity: 75%;}
+  50% {opacity: 50%;}
+  75% {opacity: 25%;}
+  100% {opacity: 0%;}
+}

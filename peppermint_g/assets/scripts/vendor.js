@@ -34,6 +34,7 @@ let enemyLvl = document.getElementById("enemy-lvl");
 const startingStatLevel = 1;
 const startingLevel = startingStatLevel;
 
+//buttons
 const attackBtn = document.getElementById("attack-btn");
 const specMoveBtn = document.getElementById("spec-move-btn");
 const parryBtn = document.getElementById("parry-btn");
@@ -43,6 +44,10 @@ const nameBtn = document.getElementById("change-name");
 let currentEnemyName;
 let currentEnemyLvl;
 let currentPlayerLvl = startingLevel;
+
+let playerNameDefault = "Hero";
+playerName.innerHTML = playerNameDefault;
+
 
 function getRandom(min, max) {
   return Math.random() * (max - min) + min;
@@ -139,7 +144,7 @@ function dealEnemyDamage(damage) {
   } else if (statStrenght.value === 2) {
     dealtDamage = parseInt(
       getRandom(0.5, 1) * damage * (statStrenght.value / 1.5)
-    );
+      );
   } else {
     dealtDamage = parseInt(
       getRandom(0.5, 1) * damage * (statStrenght.value / 2)
@@ -149,32 +154,65 @@ function dealEnemyDamage(damage) {
   return dealtDamage;
 }
 
+function endFight() {
+  if (enemyHealthBar.value <= 0 && playerHealthBar.value > 0) {
+    clearNotif();
+    notifWasKilled.innerHTML = `Lvl ${currentEnemyLvl} ${currentEnemyName} was killed!`;
+    winHeal();
+    getXP();
+    setTimeout(clearNotif, 2400);
+    setTimeout(getNewEnemy, 2500, "Sligthly Bigger Shit", 2);
+  } else if (playerHealthBar.value <= 0 && enemyHealthBar.value > 0) { 
+    notifWasKilled.innerHTML = "Lvl 1 Lil' Shit massacred the player!";
+    
+  } else if (playerHealthBar.value <= 0 && enemyHealthBar.value <= 0) {
+    notifWasKilled.innerHTML = "You both fell!";
+    
+  }
+}
+
+const isEnemyDead = (oldEnemyHealth, damage) => {
+  if (+oldEnemyHealth - +damage <= 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+// const isPlayerDead = () => {
+//   if (currentPlayerHealth <= 0 && currentEnemyHealth > 0) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
+
 //Funções de XP
 function getXP() {
-  let xpValue = parseInt(calcXP(currentEnemyLvl, currentPlayerLvl))
-  playerXPBar.value += xpValue
-  xpCurrent.innerHTML = playerXPBar.value 
-  notifDropped.innerHTML = `You earned ${xpValue}xp!`
+  let xpValue = parseInt(calcXP(currentEnemyLvl, currentPlayerLvl));
+  playerXPBar.value += xpValue;
+  xpCurrent.innerHTML = playerXPBar.value;
+  notifDropped.innerHTML = `You earned ${xpValue}xp!`;
 
-  if(playerXPBar.value >= playerXPBar.max) {
+  if (playerXPBar.value >= playerXPBar.max) {
     let sumBarValue = playerXPBar.value + xpValue;
     currentPlayerLvl += +1;
     assignLevel(currentPlayerLvl);
     giveSkillPoint();
     playerXPBar.value = sumBarValue - playerXPBar.max;
-    xpCurrent.innerHTML = playerXPBar.value  
-  } 
+    xpCurrent.innerHTML = playerXPBar.value;
+  }
 }
 
 function calcXP(eV, pV) {
   let difE = eV - pV;
   let xpValue;
-  if (eV < pV && (difE) > -2) {
-    xpValue = 5 + (difE) * 5;
+  if (eV < pV && difE > -2) {
+    xpValue = 5 + difE * 5;
   } else if (eV >= pV) {
-    xpValue = 10 + (difE) * 5;
+    xpValue = 10 + difE * 5;
   } else {
-    xpValue = 0
+    xpValue = 0;
   }
   return xpValue;
 }
@@ -209,10 +247,6 @@ function assignStatPointHP() {
   clearNotif();
 }
 
-function changeName() {
-  playerName.innerHTML = prompt("Tell us your name:")
-}
-
 //
 assignLevel(startingLevel);
 assignStartingStat(statHP);
@@ -220,4 +254,7 @@ assignStartingStat(statStrenght);
 assignStartingStat(statSpeed);
 assignStartingStat(statToughness);
 
-nameBtn.addEventListener("click", changeName);
+nameBtn.addEventListener(
+  "click",
+  () => (playerName.innerHTML = prompt("Tell us your name:"))
+);
