@@ -14,6 +14,7 @@ let currentPlayerMana = playerManaBar.value;
 adjustBars(baseBarValue);
 getNewEnemy("Lil'Shit", 1);
 
+
 function attackEnemy(mode) {
   let maxDamage;
   let hasAttacked = false;

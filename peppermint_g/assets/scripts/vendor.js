@@ -30,6 +30,7 @@ let statToughness = document.getElementById("sts-toughness");
 //enemy details
 let enemyName = document.getElementById("enemy-name");
 let enemyLvl = document.getElementById("enemy-lvl");
+const enemyImg = document.querySelector("#enemy img");
 
 const startingStatLevel = 1;
 const startingLevel = startingStatLevel;
@@ -90,6 +91,13 @@ function clearNotif() {
   notifWasKilled.innerHTML = "";
   notifDropped.innerHTML = "";
   notifExtra.innerHTML = "";
+}
+
+function getEnemy(enemy) {
+  enemyLvl = enemy.lvl;
+  enemyLvl.innerHTML = `${enemyLvl}`; // fix this
+  enemyName.innerHTML = enemy.name;
+  enemyImg.src = enemy.imgURL;
 }
 
 function getNewEnemy(name, lvl) {
@@ -215,6 +223,11 @@ function calcXP(eV, pV) {
     xpValue = 0;
   }
   return xpValue;
+}
+
+function giveSkillPoint() {
+  skillPoints.innerHTML += +1;
+  skillPoints.value += +1;
 }
 
 //ADICIONAR FATOR ENEMY LVL NO FUTURO
