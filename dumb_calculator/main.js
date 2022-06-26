@@ -14,10 +14,10 @@ function clear() {
 let numOne = "";
 let numTwo = "";
 let operator = "";
-let result;
 keys.forEach((item) => {
   item.addEventListener("click", function () {
     let digit = item.innerHTML;
+    let result;
     let lastSymbol;
     function isOperator(symbol) {
       if (
@@ -84,9 +84,6 @@ keys.forEach((item) => {
       display.innerHTML += " " + digit + " ";
       operator = digit;
     } else if (!isThereOp()) {
-      if (result) {
-        clear();
-      }
       display.innerHTML += digit;
       numOne += digit;
     } else if (isThereOp()) {
