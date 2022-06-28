@@ -61,7 +61,7 @@ function barToValueHP() {
   currentPlayerHealth = parseInt(playerHealthBar.max);
 }
 
-//Coloca informações da barra de vida na tela de stats
+//Coloca informações da barra de mana na tela de stats
 function barToValueMP() {
   manaMax.innerHTML = parseInt(playerManaBar.max);
   manaCurrent.innerHTML = parseInt(playerManaBar.max);

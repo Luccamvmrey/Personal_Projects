@@ -5,13 +5,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Peppermint_G</title>
+  <title>Hero_game_1_0</title>
   <link rel="stylesheet" href="assets/styles/main.css">
-  <link rel="stylesheet" href="/assets/styles/menu.css">
-  <script src="/assets/scripts/vendor.js" defer></script>
-  <!-- <script src="/assets/scripts/enemies.js" defer></script> -->
-  <script src="/assets/scripts/app.js" defer></script>
-  <script src="/assets/scripts/css-func.js" defer></script>
+  <link rel="stylesheet" href="assets/styles/menu.css">
+  <script src="assets/sripts/vendor.js" defer></script>
+  <script src="assets/scripts/enemies.js" defer></script>
+  <script src="assets/sripts/app.js" defer></script>
+  <script src="assets/sripts/css-func.js" defer></script>
 </head>
 
 <body>
@@ -25,11 +25,11 @@
       <div id="enemy" class="">
         <h2><span id="enemy-name"></span> - Lvl <span id="enemy-lvl"></span></h2>
         <progress id="enemy-health" max="100" value="100">100%</progress>
-        <img src="/assets/images/pngwing.com.png" alt="">
+        <img src="assets/images/enemies/slime.png" alt="">
       </div>
       <div id="hero" class="">
-        <h2><span id="player-name"></span> - Lvl <span id="player-lvl_01"></span></h2>
-        <img src="/assets/images/hero.png.png" alt="">
+        <h2><span id="player-name"></span> - Lvl <span class="player-lvl"></span></h2>
+        <img src="assets/images/hero/hero.png" alt="">
       </div>
     </section>
     <section id="controls">
@@ -39,10 +39,10 @@
           <div>Life: <span id="life-current"></span>/<span id="life-max"></span></div>
           <div>Mana: <span id="mana-current"></span>/<span id="mana-max"></span></div>
           <div>XP: <span id="xp-current"></span>/<span id="xp-max"></span></div>
-          <div>Vitality: <span id="sts-hp"></span></div>
-          <div>Strenght: <span id="sts-strength"></span></div>
-          <div>Speed: <span id="sts-speed"></span></div>
-          <div>Toughness: <span id="sts-toughness"></span></div>
+          <div>Vitality: <span class="stat" id="sts-hp"></span></div>
+          <div>Strenght: <span class="stat"  id="sts-strength"></span></div>
+          <div>Speed: <span class="stat"  id="sts-speed"></span></div>
+          <div>Toughness: <span class="stat"  id="sts-toughness"></span></div>
         </div>
         <div id="divide-bar"></div>
         <div id="notification">
@@ -86,60 +86,50 @@
         </div>
       </div>
     </div>
-    <div id="skills" class="">
+    <div id="skills" class="carjack">
       <div class="handle" id="skills-handle">
         <p>Skills</p>
       </div>
       <div class="content-holder">
         <div class="content skill__content">
-          <h2 id="crt-lvl">Current Level: <span id="player-lvl_02"></span></h2>
+          <h2 id="crt-lvl">Current Level: <span class="player-lvl"></span></h2>
           <h2 id="spa">Skill points available: <span id="skill-points"></span></h2>
           <h2 id="vit-attributes">Vitality:</h2>
           <div id="vit-skills" class="skill">
-            <div>
-              <img src="/assets/images/icons/health-normal.svg" alt="">
-            </div>
-            <div>
-              <img src="/assets/images/icons/healing.svg" alt="">
-            </div>
-            <div>
-              <img src="/assets/images/icons/hand-bandage.svg" alt="">
-            </div>
-            <div>
-              <img src="/assets/images/icons/apothecary.svg" alt="">
-            </div>
-            <div>
-              <img src="/assets/images/icons/rod-of-asclepius.svg" alt="">
-            </div>
+            <div><img src="assets/images/skill_icons/1-vitality/health-normal.svg" alt=""></div>
+            <div><img src="assets/images/skill_icons/1-vitality/healing.svg" alt=""></div>
+            <div><img src="assets/images/skill_icons/1-vitality/hand-bandage.svg" alt=""></div>
+            <div><img src="assets/images/skill_icons/1-vitality/apothecary.svg" alt=""></div>
+            <div><img src="assets/images/skill_icons/1-vitality/rod-of-asclepius.svg" alt=""></div>
           </div>
           <h2 id="str-attributes">Strenght:</h2>
           <div id="str-skills" class="skill">
-            <div><img src="/assets/images/icons/strong.svg" alt=""></div>
-            <div><img src="/assets/images/icons/piercing-sword.svg" alt=""></div>
-            <div><img src="/assets/images/icons/weight-lifting-up.svg" alt=""></div>
-            <div><img src="/assets/images/icons/plain-dagger.svg" alt=""></div>
-            <div><img src="/assets/images/icons/mighty-force.svg" alt=""></div>
+            <div><img src="assets/images/skill_icons/2-strenght/strong.svg" alt=""></div>
+            <div><img src="assets/images/skill_icons/2-strenght/piercing-sword.svg" alt=""></div>
+            <div><img src="assets/images/skill_icons/2-strenght/weight-lifting-up.svg" alt=""></div>
+            <div><img src="assets/images/skill_icons/2-strenght/plain-dagger.svg" alt=""></div>
+            <div><img src="assets/images/skill_icons/2-strenght/mighty-force.svg" alt=""></div>
           </div>
           <h2 id="spd-attributes">Speed:</h2>
           <div id="spd-skills" class="skill">
-            <div><img src="/assets/images/icons/speed/sandal.svg" alt=""></div>
-            <div><img src="/assets/images/icons/speed/feather.svg" alt=""></div>
-            <div><img src="/assets/images/icons/speed/fast-arrow.svg" alt=""></div>
-            <div><img src="/assets/images/icons/speed/supersonic-bullet.svg" alt=""></div>
-            <div><img src="/assets/images/icons/speed/hypersonic-bolt.svg" alt=""></div>
+            <div><img src="assets/images/skill_icons/3-speed/sandal.svg" alt=""></div>
+            <div><img src="assets/images/skill_icons/3-speed/feather.svg" alt=""></div>
+            <div><img src="assets/images/skill_icons/3-speed/fast-arrow.svg" alt=""></div>
+            <div><img src="assets/images/skill_icons/3-speed/supersonic-bullet.svg" alt=""></div>
+            <div><img src="assets/images/skill_icons/3-speed/hypersonic-bolt.svg" alt=""></div>
           </div>
           <h2 id="tgh-attributes">Toughness:</h2>
           <div id="tgh-skills" class="skill">
-            <div><img src="/assets/images/icons/thoughness/shield.svg" alt=""></div>
-            <div><img src="/assets/images/icons/thoughness/shield-reflect.svg" alt=""></div>
-            <div><img src="/assets/images/icons/thoughness/shield-bash.svg" alt=""></div>
-            <div><img src="/assets/images/icons/thoughness/shield-impact.svg" alt=""></div>
-            <div><img src="/assets/images/icons/thoughness/shield-bounces.svg" alt=""></div>
+            <div><img src="assets/images/skill_icons/4-thoughness/shield.svg" alt=""></div>
+            <div><img src="assets/images/skill_icons/4-thoughness/shield-reflect.svg" alt=""></div>
+            <div><img src="assets/images/skill_icons/4-thoughness/shield-bash.svg" alt=""></div>
+            <div><img src="assets/images/skill_icons/4-thoughness/shield-impact.svg" alt=""></div>
+            <div><img src="assets/images/skill_icons/4-thoughness/shield-bounces.svg" alt=""></div>
           </div>
         </div>
       </div>
     </div>
-    <div id="inventory" class="carjack">
+    <div id="inventory" class="">
       <div class="handle" id="inventory-handle">
         <p>Inventory</p>
       </div>

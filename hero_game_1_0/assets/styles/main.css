@@ -1,0 +1,249 @@
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "VT323", monospace;
+  font-size: 20px;
+}
+
+html {
+  background: #ede9e8;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 612px);
+  gap: 88px;
+}
+
+main {
+  height: 762px;
+  margin: 16px;
+  border-radius: 16px;
+  background: #560303;
+  border: 3px solid #7A4500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+#screen {
+  width: 90%;
+  height: 45%;
+  margin-top: 32px;
+  border: 2px solid #7A4500;
+  /* background: #306230; */
+  background: #e5b445;
+  border-radius: 16px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows:  32px 32px auto;
+}
+
+#xp {
+  grid: 1;
+  grid-column: 1 / -1;
+  text-align: center;
+}
+
+progress {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 225px;
+  height: 16px;
+  border-radius: 16px;
+  margin: 8px 8px;
+  border: 2.3px solid #7A4500;
+  place-self: start center;
+  grid-row: 2;
+}
+
+#enemy-health {
+  width: 160px;
+  height: 12px;
+  place-self: center;
+}
+
+#player-xp {
+  width: 484px;
+}
+
+progress[value]::-webkit-progress-bar,
+progress[value] {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+progress[value]::-webkit-progress-value {
+  background-color: #fc2e20;
+  transition: all 0.2s ease-out;
+  border-radius: 8px;
+}
+
+#player-mana[value]::-webkit-progress-value {
+  background-color: #4166f5;
+}
+
+#player-xp[value]::-webkit-progress-value {
+  background-color: #3cdfff;
+}
+
+progress[value]::-moz-progress-bar {
+  /* background-color: #fc2e20; */
+  transition: all 0.2s ease-out;
+  /* border-radius: 8px; */
+}
+
+#enemy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  place-self: start center;
+  margin-top: 32px;
+}
+
+#enemy img {
+  width: 128px;
+  place-self: center
+}
+
+#hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  place-self: end center;
+}
+
+#hero img {
+  width: 156px;
+  margin-bottom: 16px;
+}
+
+#controls {
+  width: 90%;
+  height: 45%;
+  margin-bottom: 32px;
+  border: 2px solid #7A4500;
+  background: #CC8E21;
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 220px repeat(2, 48px);
+}
+
+#snd-screen {
+  width: 98%;
+  height: 95%;
+  /* background: #306230; */
+  background: #e5b445;
+  padding: 8px 16px;
+  border: 2px solid #7A4500;
+  border-radius: 8px;
+  grid-column: 1 / -1;
+  place-self: center;
+  display: grid;
+  grid-template-columns: 230px 5px 230px;
+}
+
+#snd-screen {
+  color: #3A2501;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+#divide-bar {
+  height: 189px;
+  width: 3px;
+  background: #7A4500;
+}
+
+#notification {
+  margin-left: 16px;
+}
+
+#notification div {
+  word-wrap: break-word;
+}
+
+button {
+  width: 95%;
+  height: 2rem;
+  border-radius: 8px;
+  place-self: center;
+  cursor: pointer;
+  background: #ede9e8;
+  border: none;
+  color: #3A2501;
+}
+
+.animate-p_attack {
+  animation-name: player-attack;
+  animation-duration: 500ms;
+  animation-iteration-count: 1;
+}
+
+.animate-e_damage {
+ animation-name: enemy-damage;
+ animation-duration: 350ms;
+ animation-iteration-count: 1;
+ animation-delay: 200ms;
+}
+
+.animate-e_attack {
+  animation-name: enemy-attack;
+  animation-duration: 500ms;
+  animation-iteration-count: 1;
+}
+
+.animate-p_damage {
+  animation-name: player-damage;
+  animation-duration: 350ms;
+  animation-iteration-count: 1;
+  animation-delay: 200ms;
+ }
+
+.animate-e_death {
+  animation-name: e-death;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+}
+
+@keyframes player-attack {
+  0% {transform: translate3d(0, 0, 0);}
+  50% {transform: translate3d(-170px, -25px, 0);}
+  75% {transform: translate3d(0, 0, 0);}
+}
+
+@keyframes enemy-damage {
+  0% {transform: translate3d(0, 0, 0);}
+  50% {transform: translate3d(-40px, 0, 0);}
+  100% {transform: translate3d(0, 0, 0);}
+}
+
+@keyframes enemy-attack {
+  0% {transform: translate3d(0, 0, 0);}
+  50% {transform: translate3d(170px, 25px, 0);}
+  75% {transform: translate3d(0, 0, 0);}
+}
+
+@keyframes player-damage {
+  0% {transform: translate3d(0, 0, 0);}
+  50% {transform: translate3d(40px, 0, 0);}
+  100% {transform: translate3d(0, 0, 0);}
+}
+
+@keyframes e-death {
+  0% {opacity: 100%;}
+  25% {opacity: 75%;}
+  50% {opacity: 50%;}
+  75% {opacity: 25%;}
+  100% {opacity: 0%;}
+}
