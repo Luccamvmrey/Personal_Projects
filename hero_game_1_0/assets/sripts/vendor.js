@@ -13,7 +13,7 @@ const xpCurrent = document.getElementById("xp-current");
 const playerName = document.getElementById("player-name");
 const skillPoints = document.getElementById("skill-points");
 const playerLvl = document.querySelectorAll(".player-lvl");
-const stats = document.querySelectorAll(".stat")
+const stats = document.querySelectorAll(".stat");
 const statHP = document.getElementById("sts-hp");
 const statStrenght = document.getElementById("sts-strength");
 const statSpeed = document.getElementById("sts-speed");
@@ -70,9 +70,9 @@ const playerNaming = () => {
 };
 
 const assignStartingStat = () => {
-  stats.forEach(item => {
+  stats.forEach((item) => {
     item.innerHTML = startingLevel;
-  })
+  });
 };
 
 const onInit = (value) => {
@@ -98,7 +98,6 @@ const getNewEnemy = (name, lvl) => {
   enemyHealthBar.value = baseBarValue;
 };
 //End of on course
-
 
 //Being tested
 

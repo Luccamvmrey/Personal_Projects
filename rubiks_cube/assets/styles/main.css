@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  color: #ffffff;
+}
+
+html, body {
+  height: 100%;
+  background: rgb(34, 32, 32);
+  /* background: #3D4849; */
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+main {
+  width: 728px;
+  height: 728px;
+  border: 3px solid #ffffff;
+  border-radius: 8px;
+  padding: 32px 115px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
+section {
+  box-sizing: content-box;
+  border: 2px solid #fff;
+  height: 150px;
+  width: 150px;
+  place-self: center;
+  display: grid;
+  grid-template-columns: repeat(3, 50px);
+  grid-template-rows: repeat(3, 50px);
+}
+
+/* ? Colors */
+.white {
+  background: #ffffff;
+}
+
+.orange {
+  background: #ff5800;
+}
+
+.green {
+  background: #009b48;
+}
+
+.red {
+  background: #b71234;
+}
+
+.yellow {
+  background: #ffd500;
+}
+
+.blue {
+  background: #0046ad;
+}
+
+/* ? End */
+
+section > div {
+  width: 48px;
+  height: 48px;
+  /* border: 2px solid #ffffff; */
+  place-self: center;
+}
+
+.f-one,
+.f-five,
+.f-six {
+  grid-column: 2;
+}
+
+.f-two {
+ grid-row: 2;
+}
+
+.f-four {
+  grid-row: 2;
+}
+
+.f-three {
+  grid-row: 2;
+}

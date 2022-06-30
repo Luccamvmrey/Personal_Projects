@@ -49,7 +49,6 @@ let currentPlayerLvl = startingLevel;
 let playerNameDefault = "Hero";
 playerName.innerHTML = playerNameDefault;
 
-
 function getRandom(min, max) {
   return Math.random() * (max - min) + min;
 }
@@ -152,7 +151,7 @@ function dealEnemyDamage(damage) {
   } else if (statStrenght.value === 2) {
     dealtDamage = parseInt(
       getRandom(0.5, 1) * damage * (statStrenght.value / 1.5)
-      );
+    );
   } else {
     dealtDamage = parseInt(
       getRandom(0.5, 1) * damage * (statStrenght.value / 2)
@@ -170,12 +169,10 @@ function endFight() {
     getXP();
     setTimeout(clearNotif, 2400);
     setTimeout(getNewEnemy, 2500, "Sligthly Bigger Shit", 2);
-  } else if (playerHealthBar.value <= 0 && enemyHealthBar.value > 0) { 
+  } else if (playerHealthBar.value <= 0 && enemyHealthBar.value > 0) {
     notifWasKilled.innerHTML = "Lvl 1 Lil' Shit massacred the player!";
-    
   } else if (playerHealthBar.value <= 0 && enemyHealthBar.value <= 0) {
     notifWasKilled.innerHTML = "You both fell!";
-    
   }
 }
 
@@ -185,7 +182,7 @@ const isEnemyDead = (oldEnemyHealth, damage) => {
   } else {
     return false;
   }
-}
+};
 
 // const isPlayerDead = () => {
 //   if (currentPlayerHealth <= 0 && currentEnemyHealth > 0) {
