@@ -98,7 +98,7 @@ const setColor = () => {
 };
 
 const uMove = () => {
-  let newColors = [];
+  let newColors = new Array();
   upPieceMap.forEach((piece, idx) => {
     if (idx === 9 || idx === 10 || idx === 11) {
       newColors.push(upPieceMap[idx - 9])
@@ -108,15 +108,108 @@ const uMove = () => {
   });
 
   newColors.forEach((color, idx) => {
-    let i = 0;
-    if (i === idx) {
-      upPieces[i].getAttribute("data-color").value = color;
+    for (let i = 0; i <= newColors.length;) {
+      if (i === idx) {
+        upPieces[i].setAttribute("data-color", `${color}`);
+        break;
+      } else {
+        i++;
+      }
     }
   })
 
   setColor();
+  upPieceMap.splice(0,12);
+  rightPieceMap.splice(11, 12);
   console.log(newColors);
   newColors = [];
 };
 
+const uPrimeMove = () => {
+  let newColors = new Array();
+  upPieceMap.forEach((piece, idx) => {
+    if (idx === 0 || idx === 1 || idx === 2) {
+      newColors.push(upPieceMap[idx + 9])
+    } else {
+      newColors.push(upPieceMap[idx - 3]);
+    }
+  });
+
+  newColors.forEach((color, idx) => {
+    for (let i = 0; i <= newColors.length;) {
+      if (i === idx) {
+        upPieces[i].setAttribute("data-color", `${color}`);
+        break;
+      } else {
+        i++;
+      }
+    }
+  })
+
+  setColor();
+  upPieceMap.splice(0,12);
+  rightPieceMap.splice(11, 12);
+  console.log(newColors);
+  newColors = [];
+};
+
+const rMove = () => {
+  let newColors = new Array();
+  rightPieceMap.forEach((piece, idx) => {
+    if (idx === 9 || idx === 10 || idx === 11) {
+      newColors.push(rightPieceMap[idx - 9])
+    } else {
+      newColors.push(rightPieceMap[idx + 3]);
+    }
+  });
+
+  newColors.forEach((color, idx) => {
+    for (let i = 0; i <= newColors.length;) {
+      if (i === idx) {
+        rightPieces[i].setAttribute("data-color", `${color}`);
+        break;
+      } else {
+        i++;
+      }
+    }
+  })
+
+  setColor();
+  rightPieceMap.splice(0,12);
+  upPieceMap.splice(11, 12);
+  console.log(newColors);
+  newColors = [];
+};
+
+const rPrimeMove = () => {
+  let newColors = new Array();
+  rightPieceMap.forEach((piece, idx) => {
+    if (idx === 0 || idx === 1 || idx === 2) {
+      newColors.push(rightPieceMap[idx + 9])
+    } else {
+      newColors.push(rightPieceMap[idx - 3]);
+    }
+  });
+
+  newColors.forEach((color, idx) => {
+    for (let i = 0; i <= newColors.length;) {
+      if (i === idx) {
+        rightPieces[i].setAttribute("data-color", `${color}`);
+        break;
+      } else {
+        i++;
+      }
+    }
+  })
+
+  setColor();
+  rightPieceMap.splice(0,12);
+  console.log(newColors);
+  newColors = [];
+};
+
+
 setColor();
+document.getElementById("up").addEventListener("click", uMove);
+document.getElementById("up-prime").addEventListener("click", uPrimeMove);
+document.getElementById("right").addEventListener("click", rMove);
