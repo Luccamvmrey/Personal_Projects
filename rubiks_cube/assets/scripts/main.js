@@ -148,27 +148,27 @@ const move = (moveMap, movePieces, type) => {
     if (type === "clock") {
       moveMap.forEach((p, idx) => {
         if (idx >= 0 && idx <= 2) {
-          newColors.push(moveMap[idx + 3])
-        } else if (idx >= 3 && idx <= 5 ) {
-          newColors.push(moveMap[idx + 6])
-        } else if (idx >= 6 && idx <= 8 ) {
-          newColors.push(moveMap[idx - 6])
-        } else if (idx >= 9 && idx <= 11 ) {
-          newColors.push(moveMap[idx - 3])
+          newColors.push(moveMap[idx + 3]);
+        } else if (idx >= 3 && idx <= 5) {
+          newColors.push(moveMap[idx + 6]);
+        } else if (idx >= 6 && idx <= 8) {
+          newColors.push(moveMap[idx - 6]);
+        } else if (idx >= 9 && idx <= 11) {
+          newColors.push(moveMap[idx - 3]);
         }
-      })
+      });
     } else if (type === "counter") {
       moveMap.forEach((p, idx) => {
         if (idx >= 0 && idx <= 2) {
-          newColors.push(moveMap[idx + 6])
-        } else if (idx >= 3 && idx <= 5 ) {
-          newColors.push(moveMap[idx - 3])
-        } else if (idx >= 6 && idx <= 8 ) {
-          newColors.push(moveMap[idx + 3])
-        } else if (idx >= 9 && idx <= 11 ) {
-          newColors.push(moveMap[idx - 6])
+          newColors.push(moveMap[idx + 6]);
+        } else if (idx >= 3 && idx <= 5) {
+          newColors.push(moveMap[idx - 3]);
+        } else if (idx >= 6 && idx <= 8) {
+          newColors.push(moveMap[idx + 3]);
+        } else if (idx >= 9 && idx <= 11) {
+          newColors.push(moveMap[idx - 6]);
         }
-      })
+      });
     }
   } else {
     if (type === "clock") {
@@ -190,17 +190,40 @@ const move = (moveMap, movePieces, type) => {
     }
   }
 
-
-  newColors.forEach((color, idx) => {
-    for (let i = 0; i <= newColors.length; ) {
-      if (i === idx) {
-        movePieces[i].setAttribute("data-color", `${color}`);
-        break;
-      } else {
-        i++;
+  if (
+    (moveMap === rightPieceMap && type === "counter") ||
+    (moveMap === leftPieceMap && type === "counter")
+  ) {
+    const reversed = newColors.splice(0, 3);
+    const reversed2 = newColors.splice(6, 9);
+    reversed2.forEach(item => {
+      newColors.splice(6, 0, item)
+    })
+    reversed.forEach((item) => {
+      newColors.unshift(item);
+    });
+    newColors.forEach((color, idx) => {
+      for (let i = 0; i <= newColors.length; ) {
+        if (i === idx) {
+          movePieces[i].setAttribute("data-color", `${color}`);
+          break;
+        } else {
+          i++;
+        }
       }
-    }
-  });
+    });
+  } else {
+    newColors.forEach((color, idx) => {
+      for (let i = 0; i <= newColors.length; ) {
+        if (i === idx) {
+          movePieces[i].setAttribute("data-color", `${color}`);
+          break;
+        } else {
+          i++;
+        }
+      }
+    });
+  }
 
   const doRotate = () => {
     let rot;
@@ -243,6 +266,7 @@ const move = (moveMap, movePieces, type) => {
     rot = "";
   };
 
+  console.log(newColors);
   setColor();
   trimMaps();
   doRotate();
