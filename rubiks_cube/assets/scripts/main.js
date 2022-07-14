@@ -140,23 +140,56 @@ const setColor = () => {
 const move = (moveMap, movePieces, type) => {
   let newColors = [];
 
-  if (type === "clock") {
-    moveMap.forEach((p, idx) => {
-      if (idx >= 9) {
-        newColors.push(moveMap[idx - 9]);
-      } else {
-        newColors.push(moveMap[idx + 3]);
-      }
-    });
-  } else if (type === "counter") {
-    moveMap.forEach((p, idx) => {
-      if (idx <= 2) {
-        newColors.push(moveMap[idx + 9]);
-      } else {
-        newColors.push(moveMap[idx - 3]);
-      }
-    });
+  if (
+    moveMap === frontPieceMap ||
+    moveMap === backPieceMap ||
+    moveMap === sePieceMap
+  ) {
+    if (type === "clock") {
+      moveMap.forEach((p, idx) => {
+        if (idx >= 0 && idx <= 2) {
+          newColors.push(moveMap[idx + 3])
+        } else if (idx >= 3 && idx <= 5 ) {
+          newColors.push(moveMap[idx + 6])
+        } else if (idx >= 6 && idx <= 8 ) {
+          newColors.push(moveMap[idx - 6])
+        } else if (idx >= 9 && idx <= 11 ) {
+          newColors.push(moveMap[idx - 3])
+        }
+      })
+    } else if (type === "counter") {
+      moveMap.forEach((p, idx) => {
+        if (idx >= 0 && idx <= 2) {
+          newColors.push(moveMap[idx + 6])
+        } else if (idx >= 3 && idx <= 5 ) {
+          newColors.push(moveMap[idx - 3])
+        } else if (idx >= 6 && idx <= 8 ) {
+          newColors.push(moveMap[idx + 3])
+        } else if (idx >= 9 && idx <= 11 ) {
+          newColors.push(moveMap[idx - 6])
+        }
+      })
+    }
+  } else {
+    if (type === "clock") {
+      moveMap.forEach((p, idx) => {
+        if (idx >= 9) {
+          newColors.push(moveMap[idx - 9]);
+        } else {
+          newColors.push(moveMap[idx + 3]);
+        }
+      });
+    } else if (type === "counter") {
+      moveMap.forEach((p, idx) => {
+        if (idx <= 2) {
+          newColors.push(moveMap[idx + 9]);
+        } else {
+          newColors.push(moveMap[idx - 3]);
+        }
+      });
+    }
   }
+
 
   newColors.forEach((color, idx) => {
     for (let i = 0; i <= newColors.length; ) {
@@ -171,31 +204,31 @@ const move = (moveMap, movePieces, type) => {
 
   const doRotate = () => {
     let rot;
-    
+
     const cisRot = () => {
       if (type === "clock") {
         rot = "clock";
       } else {
-        rot = "counter"
+        rot = "counter";
       }
-    }
+    };
 
     const transRot = () => {
       if (type === "clock") {
         rot = "counter";
       } else {
-        rot = "clock"
+        rot = "clock";
       }
-    }
+    };
 
     if (movePieces === upPieces) {
-      cisRot()
+      cisRot();
       rotate(fOneMap, rot);
     } else if (movePieces === downPieces) {
-      transRot()
+      transRot();
       rotate(fFiveMap, rot);
     } else if (movePieces === rightPieces) {
-      cisRot()
+      cisRot();
       rotate(fFourMap, rot);
     } else if (movePieces === leftPieces) {
       transRot();
