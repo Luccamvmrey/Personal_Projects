@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Montserrat+Alternates:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat Alternates", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  background: #f9edbb;
+}
+
+header,
+footer {
+  width: 100%;
+  height: 64px;
+  background: #0e3848;
+  display: flex;
+  align-items: center;
+}
+
+header {
+  padding-left: 16px;
+  border-bottom: 4px solid #f8485d;
+}
+
+header > h1 {
+  color: #f9edbb;
+}
+
+header > img {
+  margin-right: 16px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  border-top: 4px solid #f8485d;
+  justify-content: space-around;
+}
+
+.menu-footer {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer_icon {
+  height: 36px;
+  width: 36px;
+  border: 2px solid #f9edbb;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+#list-btn {
+  height: 32px;
+}
+
+.footer_icon > img {
+  height: 28px;
+}
+
+.new-list-button {
+  height: 72px;
+  width: 72px;
+  border: 4px solid #f9edbb;
+  border-radius: 50%;
+  background: #f6b983;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 64px;
+  cursor: pointer;
+}

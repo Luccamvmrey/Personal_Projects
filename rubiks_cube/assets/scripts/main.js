@@ -196,12 +196,30 @@ const move = (moveMap, movePieces, type) => {
   ) {
     const reversed = newColors.splice(0, 3);
     const reversed2 = newColors.splice(6, 9);
-    reversed2.forEach(item => {
-      newColors.splice(6, 0, item)
-    })
+    reversed2.forEach((item) => {
+      newColors.splice(6, 0, item);
+    });
     reversed.forEach((item) => {
       newColors.unshift(item);
     });
+    newColors.forEach((color, idx) => {
+      for (let i = 0; i <= newColors.length; ) {
+        if (i === idx) {
+          movePieces[i].setAttribute("data-color", `${color}`);
+          break;
+        } else {
+          i++;
+        }
+      }
+    });
+  } else if (
+    (moveMap === rightPieceMap && type === "clock") ||
+    (moveMap === leftPieceMap && type === "clock")
+  ) {
+    const reversed3 = newColors.splice(9, 12);
+    reversed3.forEach(item => {
+      newColors.splice(9, 0, item);
+    })
     newColors.forEach((color, idx) => {
       for (let i = 0; i <= newColors.length; ) {
         if (i === idx) {
