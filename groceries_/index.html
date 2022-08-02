@@ -11,26 +11,64 @@
 </head>
 
 <body>
-  <header>
-    <img src="assets/images/shopping_cart.svg" alt="Shopping Cart">
-    <h1>Groceries_</h1>
-  </header>
-  <footer>
-    <div class="menu-footer">
-      <div class="footer_icon">
-        <img src="assets/images/list_icon.svg" alt="list" id="list-btn">
+  <section class="lists">
+    <header>
+      <img src="assets/images/shopping_cart.svg" alt="Shopping Cart">
+      <h1>Groceries_</h1>
+    </header>
+    <footer>
+      <div class="menu-footer">
+        <div class="footer_icon">
+          <img src="assets/images/list_icon.svg" alt="list" id="list-btn" title="Lists">
+        </div>
+        <div class="footer_icon">
+          <img src="assets/images/inventory_icon.svg" alt="inventory" id="inventory-btn" title="Pantry">
+        </div>
+        <div class="footer_icon">
+          <img src="assets/images/settings_icon.svg" alt="settings" id="settings-btn" title="Settings">
+        </div>
       </div>
-      <div class="footer_icon">
-        <img src="assets/images/inventory_icon.svg" alt="inventory" id="inventory-btn">
+      <div class="new-list-button">
+        <img src="assets/images/add_icon.svg" alt="" title="New List">
       </div>
-      <div class="footer_icon">
-        <img src="assets/images/settings_icon.svg" alt="settings" id="settings-btn">
+    </footer>
+  </section>
+
+  <section class="new-list visible">
+    <header>
+      <img src="assets/images/shopping_cart.svg" alt="Shopping Cart">
+      <h1>Groceries_</h1>
+    </header>
+    <main class="new-list__main">
+      <div class="new-list__content">
+        <div class="new-list__title-fixed">
+          <h1>New List</h1>
+        </div>
+        <div>
+          <input type="text" id="new-list__title" value="Title">
+        </div>
+        <div class="new-list__content-items">
+          <div class="new-list__new-item">
+            <img src="assets/images/add_icon.svg" alt="">
+            <h3>Add Item</h3>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="new-list-button">
-      <img src="assets/images/add_icon.svg" alt="">
-    </div>
-  </footer>
+    </main>
+    <footer>
+      <div class="menu-footer">
+        <div class="footer_icon">
+          <img src="assets/images/list_icon.svg" alt="list" id="list-btn" title="Lists">
+        </div>
+        <div class="footer_icon">
+          <img src="assets/images/inventory_icon.svg" alt="inventory" id="inventory-btn" title="Pantry">
+        </div>
+        <div class="footer_icon">
+          <img src="assets/images/settings_icon.svg" alt="settings" id="settings-btn" title="Settings">
+        </div>
+      </div>
+    </footer>
+  </section>
 </body>
 
 </html>
