@@ -143,7 +143,7 @@ input#new-list__title:focus {
 }
 
 .new-list__new-item > img {
- height: 24px; 
+  height: 24px;
 }
 
 .lists {
