@@ -1,0 +1,50 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+body {
+  background: #152238;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.lvl {
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.room {
+  border: 2px solid white;
+  width: 128px;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.node {
+  width: 48px;
+  height: 48px;
+  background: white;
+  border-radius: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  cursor: pointer;
+}
