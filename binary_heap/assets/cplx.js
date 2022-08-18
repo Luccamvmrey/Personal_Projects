@@ -24,21 +24,32 @@ class Tree {
     });
   }
 
-  render() {
+  createEl(appendTo, value) {
+    const nodeEl = document.createElement("div");
+    nodeEl.className = "node";
+    nodeEl.textContent = `${value}`;
+    appendTo.append(nodeEl);
+    appendTo.setAttribute("data-is-occupied", "true");
+  }
+
+  render(selectedRoom, value) {
     const rooms = document.querySelectorAll(".room");
-    this.nodes.forEach((node) => {
-      rooms.forEach((room) => {
-        let isOccupied = room.getAttribute("data-is-occupied");
-        if (isOccupied === "false" && !node.isAssigned) {
-          const nodeEl = document.createElement("div");
-          nodeEl.className = "node";
-          nodeEl.textContent = `${node.value}`;
-          room.append(nodeEl);
-          room.setAttribute("data-is-occupied", "true");
-          node.isAssigned = true;
-        }
+    if (!selectedRoom && !value) {
+      this.nodes.forEach((node) => {
+        rooms.forEach((room) => {
+          let isOccupied = room.getAttribute("data-is-occupied");
+          if (isOccupied === "false" && !node.isAssigned) {
+            this.createEl(room, node.value);
+            node.isAssigned = true;
+          }
+        });
       });
-    });
+    } else if (selectedRoom) {
+      const parEl = selectedRoom.parentElement;
+      const parLvl = parseInt(parEl.id.match(/\d+/g).pop());
+      selectedRoom.innerHTML = "";
+      this.createEl(selectedRoom, value);
+    }
   }
 
   clear() {
@@ -65,23 +76,50 @@ class Node {
 const tree = new Tree();
 document.getElementById("clear").addEventListener("click", tree.clear);
 
-const input = document.querySelector("input");
-input.addEventListener("keyup", (event) => {
+const mainInput = document.getElementById("main-input");
+mainInput.addEventListener("keyup", (event) => {
   if (event.key === "Enter" || event.key === "NumpadEnter") {
     event.preventDefault();
-    tree.insert(input.value);
+    tree.insert(mainInput.value);
     tree.render();
-    input.value = "";
+    mainInput.value = "";
   }
 });
 
-document.querySelectorAll(".room").forEach((room) => {
+const singleNodeInput = document.getElementById("single-node-input");
+const rooms = document.querySelectorAll(".room");
+rooms.forEach((room) => {
   room.addEventListener("click", () => {
-    if (!room.querySelector(".inp-el")) {
-      const inpEl = document.createElement("input");
-      inpEl.setAttribute("type", "number"); 
-      inpEl.className = "inp-el";
-      room.appendChild(inpEl);
-    }
+    rooms.forEach((item) => {
+      if (item !== room) {
+        item.classList.remove("activated");
+      }
+    });
+    room.classList.toggle("activated");
+    singleNodeInput.focus();
   });
 });
+singleNodeInput.addEventListener("keyup", (event) => {
+  if (event.key === "Enter" || event.key === "NumpadEnter") {
+    let selectedRoom;
+    rooms.forEach((item) => {
+      if (item.classList.contains("activated")) {
+        selectedRoom = item;
+      }
+    });
+    event.preventDefault();
+    tree.render(selectedRoom, +singleNodeInput.value);
+    singleNodeInput.value = "";
+  }
+});
+
+const testRoom = document.getElementById("test");
+const testParent = testRoom.parentElement;
+const testChildren = [...testParent.children];
+const testLoop = () => {
+  testChildren.forEach((child) => {
+    if (child.getAttribute("data-is-occupied") === "false") {
+      console.log("we're free!");
+    }
+  });
+};
