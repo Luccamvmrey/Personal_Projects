@@ -47,6 +47,8 @@ class Tree {
     } else if (selectedRoom) {
       const parEl = selectedRoom.parentElement;
       const parLvl = parseInt(parEl.id.match(/\d+/g).pop());
+      //Check if there are nodes in levels above the selected one
+      
       selectedRoom.innerHTML = "";
       this.createEl(selectedRoom, value);
     }
@@ -113,13 +115,3 @@ singleNodeInput.addEventListener("keyup", (event) => {
   }
 });
 
-const testRoom = document.getElementById("test");
-const testParent = testRoom.parentElement;
-const testChildren = [...testParent.children];
-const testLoop = () => {
-  testChildren.forEach((child) => {
-    if (child.getAttribute("data-is-occupied") === "false") {
-      console.log("we're free!");
-    }
-  });
-};
