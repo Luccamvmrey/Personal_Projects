@@ -34,6 +34,7 @@ class Water extends Default {
 }
 
 class Blob extends Default {
+  id = Math.random();
   age = 0;
   isAlive = true;
 
@@ -42,9 +43,23 @@ class Blob extends Default {
       //List of functions executed every second
       this.getOlder();
     });
+    this.render();
   }
 
-  getOlder() {
+  render() { //Renders the blobs to the tribe screen
+    const screenTribe = document.getElementById("screen-tribe");
+    this.blobBody = document.createElement("div");
+    this.blobBody.className = "blob";
+    screenTribe.append(this.blobBody);
+  }
+
+  // hoverInfo() { //todo: Do Later!
+  //   this.blobBody.addEventListener("mouseenter", () => {
+
+  //   })
+  // }
+
+  getOlder() { //Ages the blobs
     this.age++;
     console.log(`${this.name} just got older, he's ${this.age} years old!`);
   }
@@ -57,9 +72,11 @@ class Tribe {
 
   createBlob(blobs) {
     for (let i = 0; i < blobs; i++) {
-      new Blob();
+      setTimeout(() => {
+        new Blob();
+      }, 750);
     }
   }
 }
 
-const testBlob = new Blob();
+// const testBlob = new Blob();
