@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome!</title>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+  <div id="welcome">
+    <h1>Welcome!</h1>
+    <h2>Click your way to success!</h2>
+  </div>
+
+  <form action="/game" method="POST" class="form-control">
+    <h3>Create an account or log in:</h3>
+    <div class="form-control__input">
+      <label for="username">Username</label>
+      <input type="text" name="username" id="username">
+    </div>
+    <div class="form-control__input">
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password">
+    </div>
+    <div class="form-control__actions">
+      <button type="submit">Start!</button>
+    </div>
+  </form>
+  <button><a href="/game">Go To Game</a></button>
+</body>
+
+</html>

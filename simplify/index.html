@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="app.js" defer></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      height: 100%;
+    }
+
+    body {
+      height: 80%;
+      background: wheat;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
+
+    .inputs {
+      display: flex;
+      gap: 16px;
+    }
+
+    .input {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .input input {
+      text-align: center;
+    }
+
+    #results {
+      width: 150px;
+      height: 25px;
+      background-color: wheat;
+      border: 1px solid #000;
+      border-radius: 6px;
+      text-align: center;
+    }
+
+    button {
+      width: 150px;
+      height: 25px;
+      background-color: wheat;
+      border: 1px solid #000;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    }
+
+    button:hover {
+      background-color: rgb(236, 211, 163);
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="inputs">
+    <div class="input">
+      <label for="num1">Primeiro Número</label>
+      <input type="number" id="num1">
+    </div>
+    <div class="input">
+      <label for="op">Operador</label>
+      <input type="text" id="op">
+    </div>
+    <div class="input">
+      <label for="num2">Segundo Número</label>
+      <input type="number" id="num2">
+    </div>
+  </div>
+  <div id="results"></div>
+  <button>Calcule!</button>
+</body>
+
+</html>
