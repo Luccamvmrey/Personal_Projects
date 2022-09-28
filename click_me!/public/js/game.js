@@ -1,4 +1,4 @@
-import { Counter } from "./counter.js";
+import { Counter } from "./Counter.js";
 
 class App {
   constructor() {
@@ -9,11 +9,7 @@ class App {
       } else {
         this.onClick();
       }
-
     });
-    // if (!localStorage.getItem("started")) {
-    //   this.mainBtn.addEventListener("click", this.renderClick);
-    // }
     this.checkStart();
   }
 

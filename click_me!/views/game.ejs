@@ -12,10 +12,23 @@
 </head>
 
 <body>
-  <div class="counter-container">
-    <h1>You clicked: <span id="times-clicked">1</span></h1>
+    <div class="counter-container">
+      <h1>You clicked: <span id="times-clicked">1</span></h1>
+      <h3>Clicks per Second:</h3>
+    </div>
+    <div class="main-btn centered" id="main-button">Click Me!</div>
+  <div id="shop">
+    <h1>Shop!</h1> 
+    <% for (let prod of prods) { %>
+      <div class="product">
+        <div class="title"><%= prod.title %></div>
+        <div class="description"><%= prod.description %></div>
+        <div class="price"><%= prod.price.string %></div>
+        <div class="adds"><%= prod.effect.string %></div>
+        <button>Buy!</button>
+      </div>
+    <% } %> 
   </div>
-  <div class="main-btn centered" id="main-button">Click Me!</div>
 </body>
 
 </html>
