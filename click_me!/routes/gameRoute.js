@@ -1,5 +1,4 @@
 const express = require("express");
-const product = require("../public/js/Products");
 
 const gameController = require("../controllers/game");
 

@@ -1,6 +1,6 @@
 const express = require("express");
-const product = require("../public/js/Products");
-const upgrade = require("../public/js/Upgrades");
+const product = require("../models/Products");
+const upgrade = require("../models/Upgrades");
 
 exports.postStartGame = (req, res, next) => {
   users.push({ username: req.body.username, password: req.body.password });
