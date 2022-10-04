@@ -7,4 +7,8 @@ export class Counter {
     const counter = document.getElementById("times-clicked");
     counter.textContent = +counter.textContent + 1 * this.multiplier;
   }
+
+  autoClicker() {
+    
+  }
 }

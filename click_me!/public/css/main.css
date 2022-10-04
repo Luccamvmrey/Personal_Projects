@@ -12,12 +12,13 @@ html {
 }
 
 body {
-  height: 100%;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 16px;
+  padding: 32px;
 }
 
 #welcome {
@@ -54,3 +55,4 @@ body {
   font-size: 16px;
   width: 100px;
 }
+

@@ -1,19 +1,17 @@
 const express = require("express");
 const product = require("../public/js/Products");
 
+const gameController = require("../controllers/game");
+
 users = [];
 const router = express.Router();
 
-router.post("/game", (req, res, next) => {
-  users.push({ username: req.body.username, password: req.body.password });
-  console.log(users);
-  res.redirect("/game");
-});
+router.post("/game", gameController.postStartGame);
 
-router.get("/game", (req, res, next) => {
-  res.render("game.ejs", {
-    prods: product,
-  });
-});
+router.post("/game/buy-product", gameController.postBuyProduct);
+
+router.post("/game/buy-upgrade", gameController.postBuyUpgrade);
+
+router.get("/game", gameController.getGame);
 
 exports.router = router;

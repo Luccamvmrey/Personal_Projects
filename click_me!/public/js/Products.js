@@ -1,40 +1,38 @@
-const product = [
-  {
-    title: "Henrique",
-    description: "Clicks for you, but tells terrible jokes",
-    price: {
-      string: "10 Clicks",
-      n: 10,
-    },
-    effect: {
-      string: "0.1 Clicks per Second",
-      n: 0.1,
-    },
-  },
-  {
-    title: "Carolina",
-    description: "Look how cute she is. Just soft",
-    price: {
-      string: "100 Clicks",
-      n: 100,
-    },
-    effect: {
-      string: "0.5 Clicks per Second",
-      n: 0.5,
-    },
-  },
-  {
-    title: "Alexandre",
-    description: "Careful, he bites!",
-    price: {
-      string: "1000 Clicks",
-      n: 1000,
-    },
-    effect: {
-      string: "1 Click per Second",
-      n: 1,
-    },
-  },
-]
+class Product {
+  constructor(title, description, price, effect) {
+    this.title = title;
+    this.description = description;
+    this.price = price;
+    this.effect = effect;
+  }
+}
 
-module.exports = product;
+const Lucca = new Product(
+  "Lucca",
+  "He coded this, but doesn't do much.",
+  "10 Clicks",
+  "0.1 CpS"
+);
+
+const Henrique = new Product(
+  "Henrique",
+  "Clicks for you, but tells terrible jokes",
+  "100 Clicks",
+  "0.5 Cps"
+);
+
+const Carolina = new Product(
+  "Carolina",
+  "Look how cute she is. Just soft.",
+  "1000 Clicks",
+  "2.5 CpS"
+);
+
+const Alexandre = new Product(
+  "Alexandre",
+  "Careful, he bites!",
+  "5000 Clicks",
+  "10 CpS"
+);
+
+exports.products = [Lucca, Henrique, Carolina, Alexandre];

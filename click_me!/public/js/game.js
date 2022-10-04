@@ -3,6 +3,9 @@ import { Counter } from "./Counter.js";
 class App {
   constructor() {
     this.mainBtn = document.getElementById("main-button");
+    const upgradesBtn = document.getElementById("upgrades-btn");
+    const productsBtn = document.getElementById("products-btn");
+
     this.mainBtn.addEventListener("click", () => {
       if (!localStorage.getItem("started")) {
         this.renderClick();
@@ -11,6 +14,13 @@ class App {
       }
     });
     this.checkStart();
+
+    upgradesBtn.addEventListener("click", () => {
+      this.openTab("upgrades-tab");
+    });
+    productsBtn.addEventListener("click", () => {
+      this.openTab("products-tab");
+    });
   }
 
   checkStart() {
@@ -28,6 +38,14 @@ class App {
 
   onClick() {
     this.counter.click();
+  }
+
+  openTab(tab) {
+    let x = document.getElementsByClassName("tab");
+    for (let i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+    }
+    document.getElementById(tab).style.display = "block";
   }
 }
 
