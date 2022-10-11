@@ -5,5 +5,6 @@ class User {
     this.id;
     this.prods;
     this.ups;
+    this.clicks;
   }
 }
