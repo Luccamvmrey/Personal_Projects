@@ -11,6 +11,9 @@ router.post("/game/buy-product", gameController.postBuyProduct);
 
 router.post("/game/buy-upgrade", gameController.postBuyUpgrade);
 
+router.get("/game/upsjson", gameController.getUpgradesJson);
+
 router.get("/game", gameController.getGame);
+
 
 exports.router = router;

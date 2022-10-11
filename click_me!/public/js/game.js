@@ -1,4 +1,5 @@
 import { Counter } from "./Counter.js";
+import { getUpgrades, upgradesArray } from "./util/getUpgrades.js"
 
 class App {
   constructor() {
@@ -50,3 +51,7 @@ class App {
 }
 
 const app = new App();
+
+// getUpgrades().then(data => {console.log(data)})
+console.log(upgradesArray);
+

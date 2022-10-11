@@ -12,10 +12,6 @@ class Upgrade {
     this.bought = true;
     console.log(`${this.title}: I was bought`);
   }
-
-  static addEffect() {
-    console.log("Hey, cunts");
-  }
 }
 
 const fountainPen = new Upgrade(
@@ -24,7 +20,17 @@ const fountainPen = new Upgrade(
   "Came from grandpa!",
   "15 clicks",
   "Clicking is twice as effective!!"
-)
+);
 
-exports.upgrades = [fountainPen];
+const biggerMouse = new Upgrade(
+  1,
+  "A Bigger Mouse",
+  "Why click twice, when clicking once do the trick",
+  "30 clicks",
+  "Clicking is twice as effective!!"
+);
+
+exports.upgrades = [fountainPen, biggerMouse];
+
+
 

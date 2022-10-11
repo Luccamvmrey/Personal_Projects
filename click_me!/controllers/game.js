@@ -39,3 +39,7 @@ exports.postBuyUpgrade = (req, res, next) => {
     upgrade.upgrades.push(selUpgrade);
   }, 1000);
 };
+
+exports.getUpgradesJson = (req, res, next) => {
+  res.send(JSON.stringify(upgrade.upgrades));
+}
