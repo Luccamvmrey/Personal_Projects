@@ -5,11 +5,21 @@ class Upgrade {
     this.description = description;
     this.price = price;
     this.effect = effect;
+    this.bought = false;
+  }
+
+  buy() {
+    this.bought = true;
+    console.log(`${this.title}: I was bought`);
+  }
+
+  static addEffect() {
+    console.log("Hey, cunts");
   }
 }
 
 const fountainPen = new Upgrade(
-  1,
+  0,
   "Fountain Pen",
   "Came from grandpa!",
   "15 clicks",
@@ -17,3 +27,4 @@ const fountainPen = new Upgrade(
 )
 
 exports.upgrades = [fountainPen];
+

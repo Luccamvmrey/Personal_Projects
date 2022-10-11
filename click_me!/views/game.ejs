@@ -25,27 +25,31 @@
     </nav>
     <div id="upgrades-tab" class="tab">
       <h1>Upgrades!</h1>
-      <% for (let upgrade of ups) { %>
-        <div class="product">
+      <% if (ups.length> 0) { %>
+        <% for (let upgrade of ups) { %>
+          <div class="product">
 
-          <div class="title">
-            <%= upgrade.title %>
-          </div>
-          <div class="description">
-            <%= upgrade.description %>
-          </div>
-          <div class="price">Costs: <%= upgrade.price %>
-          </div>
-          <div class="effect">Effect: <%= upgrade.effect %>
-          </div>
+            <div class="title">
+              <%= upgrade.title %>
+            </div>
+            <div class="description">
+              <%= upgrade.description %>
+            </div>
+            <div class="price">Cost: <%= upgrade.price %>
+            </div>
+            <div class="effect">Effect: <%= upgrade.effect %>
+            </div>
 
-          <form action="/game/buy-upgrade" method="POST" target="dummy">
-            <input type="hidden" value="<%= upgrade.title %>" name="upgradeTitle">
-            <button type="submit">Buy!</button>
-          </form>
+            <form action="/game/buy-upgrade" method="POST">
+              <input type="hidden" value="<%= upgrade.title %>" name="upgradeTitle">
+              <button type="submit">Buy!</button>
+            </form>
 
-        </div>
-        <% } %>
+          </div>
+          <% } %>
+      <% } else { %>
+        <h2>No upgrades to buy...</h2>
+      <% } %>
     </div>
 
     <div id="products-tab" class="tab" style="display: none;">
@@ -60,7 +64,7 @@
           <div class="description">
             <%= prod.description %>
           </div>
-          <div class="price">Costs: <%= prod.price %>
+          <div class="price">Cost: <%= prod.price %>
           </div>
           <div class="effect">Effect: <%= prod.effect %>
           </div>
