@@ -5,10 +5,18 @@ export class Counter {
 
   click() {
     const counter = document.getElementById("times-clicked");
-    counter.textContent = +counter.textContent + 1 * this.multiplier;
+    if (this.multiplier == 0) {
+      counter.textContent = +counter.textContent + 1;
+    } else {
+      counter.textContent = +counter.textContent + 1 * this.multiplier;
+    }
   }
 
   autoClicker() {
     
   }
+
+  refreshMultiplier() {
+    this.multiplier = +localStorage.getItem("multiplier");
+  };
 }

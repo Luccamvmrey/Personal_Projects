@@ -24,9 +24,10 @@ exports.postBuyProduct = (req, res, next) => {
 exports.postBuyUpgrade = (req, res, next) => {
   const title = req.body.upgradeTitle;
   const selUpgrade = upgrade.upgrades.filter((up) => up.title === title)[0];
+  const selIndex = upgrade.upgrades.findIndex((up) => up === selUpgrade);
 
   selUpgrade.buy();
-  upgrade.upgrades.pop(selUpgrade);
+  upgrade.upgrades.splice(selIndex, 1);
   res.redirect("/game");
 
   //Dev Purposes Only!!!
@@ -36,10 +37,10 @@ exports.postBuyUpgrade = (req, res, next) => {
       DevMode: Adding back;
       Logging from controllers/game.js ln 37;
     `);
-    upgrade.upgrades.push(selUpgrade);
+    upgrade.upgrades.splice(selIndex, 0, selUpgrade);
   }, 1000);
 };
 
 exports.getUpgradesJson = (req, res, next) => {
   res.send(JSON.stringify(upgrade.upgrades));
-}
+};

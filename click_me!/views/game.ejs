@@ -42,7 +42,7 @@
 
             <form action="/game/buy-upgrade" method="POST">
               <input type="hidden" value="<%= upgrade.title %>" name="upgradeTitle">
-              <button type="submit">Buy!</button>
+              <button type="submit" data-upgrade-index="<%= upgrade.id %> ">Buy!</button>
             </form>
 
           </div>

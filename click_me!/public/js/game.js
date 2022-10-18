@@ -1,11 +1,13 @@
 import { Counter } from "./Counter.js";
-import { getUpgrades, upgradesArray } from "./util/getUpgrades.js"
+import { getUpgrades, upgradesArray } from "./util/getUpgrades.js";
 
 class App {
   constructor() {
     this.mainBtn = document.getElementById("main-button");
     const upgradesBtn = document.getElementById("upgrades-btn");
     const productsBtn = document.getElementById("products-btn");
+    const upgradeBtns = document.querySelectorAll("#upgrades-tab button");
+    const productBtns = document.querySelectorAll("#products-tab button");
 
     this.mainBtn.addEventListener("click", () => {
       if (!localStorage.getItem("started")) {
@@ -22,6 +24,26 @@ class App {
     productsBtn.addEventListener("click", () => {
       this.openTab("products-tab");
     });
+
+    upgradeBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const upgradeIndex = btn.getAttribute("data-upgrade-index");
+        const selUpgrade = upgradesArray.filter(
+          (up) => up.id === +upgradeIndex
+        )[0];
+
+        if (!localStorage.getItem("multiplier")) {
+          localStorage.setItem("multiplier", selUpgrade.effectNum);
+        } else if (+localStorage.getItem("multiplier") > 0) {
+          const currentMultiplier = localStorage.getItem("multiplier");
+          const newMultiplier = currentMultiplier * selUpgrade.effectNum;
+          localStorage.setItem("multiplier", newMultiplier);
+        }
+
+        console.log(this.counter.multiplier);
+      });
+    });
+    this.counter.refreshMultiplier();
   }
 
   checkStart() {
@@ -51,7 +73,3 @@ class App {
 }
 
 const app = new App();
-
-// getUpgrades().then(data => {console.log(data)})
-console.log(upgradesArray);
-

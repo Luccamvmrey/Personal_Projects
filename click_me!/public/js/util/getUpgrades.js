@@ -12,12 +12,15 @@ export function getUpgrades() {
 }
 
 class Upgrade {
-  constructor(id, title, description, price, effect) {
+  constructor(id, title, description, price, priceNum, effect, effectNum, target) {
     this.id = id;
     this.title = title;
     this.description = description;
     this.price = price;
+    this.priceNum = priceNum;
     this.effect = effect;
+    this.effectNum = effectNum;
+    this.target = target;
     this.bought = false;
   }
 
@@ -31,12 +34,12 @@ getUpgrades()
   .then((upgrades) => {
     upgrades.forEach((up) => {
       upgradesArray.push(
-        new Upgrade(up.id, up.title, up.description, up.price, up.effect)
+        new Upgrade(up.id, up.title, up.description, up.price, up.priceNum, up.effect, up.effectNum, up.target)
       );
     });
   })
   .catch((err) => {
-    console.log(errs);
+    console.log(err);
   });
 
 export const upgradesArray = [];
