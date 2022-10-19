@@ -8,12 +8,6 @@ class Upgrade {
     this.effect = effect;
     this.effectNum = effectNum;
     this.target = target;
-    this.bought = false;
-  }
-
-  buy() {
-    this.bought = true;
-    console.log(`${this.title}: I was bought`);
   }
 }
 

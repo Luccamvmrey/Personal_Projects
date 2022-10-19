@@ -12,7 +12,16 @@ export function getUpgrades() {
 }
 
 class Upgrade {
-  constructor(id, title, description, price, priceNum, effect, effectNum, target) {
+  constructor(
+    id,
+    title,
+    description,
+    price,
+    priceNum,
+    effect,
+    effectNum,
+    target
+  ) {
     this.id = id;
     this.title = title;
     this.description = description;
@@ -21,12 +30,6 @@ class Upgrade {
     this.effect = effect;
     this.effectNum = effectNum;
     this.target = target;
-    this.bought = false;
-  }
-
-  buy() {
-    this.bought = true;
-    console.log(`${this.title}: I was bought`);
   }
 }
 
@@ -34,7 +37,16 @@ getUpgrades()
   .then((upgrades) => {
     upgrades.forEach((up) => {
       upgradesArray.push(
-        new Upgrade(up.id, up.title, up.description, up.price, up.priceNum, up.effect, up.effectNum, up.target)
+        new Upgrade(
+          up.id,
+          up.title,
+          up.description,
+          up.price,
+          up.priceNum,
+          up.effect,
+          up.effectNum,
+          up.target
+        )
       );
     });
   })

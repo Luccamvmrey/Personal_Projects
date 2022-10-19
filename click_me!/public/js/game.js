@@ -1,9 +1,19 @@
 import { Counter } from "./Counter.js";
+import { postClick } from "./util/postClicks.js";
 import { getUpgrades, upgradesArray } from "./util/getUpgrades.js";
+import { getProducts, productsArray } from "./util/getProducts.js";
 
 class App {
   constructor() {
     this.mainBtn = document.getElementById("main-button");
+
+    this.startEventListeners();
+    this.checkStart();
+
+    this.counter.refreshMultiplier();
+  }
+
+  startEventListeners() {
     const upgradesBtn = document.getElementById("upgrades-btn");
     const productsBtn = document.getElementById("products-btn");
     const upgradeBtns = document.querySelectorAll("#upgrades-tab button");
@@ -16,7 +26,6 @@ class App {
         this.onClick();
       }
     });
-    this.checkStart();
 
     upgradesBtn.addEventListener("click", () => {
       this.openTab("upgrades-tab");
@@ -31,19 +40,19 @@ class App {
         const selUpgrade = upgradesArray.filter(
           (up) => up.id === +upgradeIndex
         )[0];
+        const multiplier = localStorage.getItem("multiplier");
 
-        if (!localStorage.getItem("multiplier")) {
-          localStorage.setItem("multiplier", selUpgrade.effectNum);
-        } else if (+localStorage.getItem("multiplier") > 0) {
-          const currentMultiplier = localStorage.getItem("multiplier");
-          const newMultiplier = currentMultiplier * selUpgrade.effectNum;
-          localStorage.setItem("multiplier", newMultiplier);
+        if (this.checkEnoughClicks(selUpgrade.priceNum)) {
+          if (!multiplier) {
+            localStorage.setItem("multiplier", selUpgrade.effectNum);
+          } else if (+multiplier > 0) {
+            const currentMultiplier = multiplier;
+            const newMultiplier = currentMultiplier * selUpgrade.effectNum;
+            localStorage.setItem("multiplier", newMultiplier);
+          }
         }
-
-        console.log(this.counter.multiplier);
       });
     });
-    this.counter.refreshMultiplier();
   }
 
   checkStart() {
@@ -61,6 +70,16 @@ class App {
 
   onClick() {
     this.counter.click();
+    // postClick(this.clicks);
+  }
+
+  checkEnoughClicks(price) {
+    if(this.clicks > price) {
+      return true;
+    } else {
+      alert("You don't have enough clicks!");
+      return false;
+    }
   }
 
   openTab(tab) {

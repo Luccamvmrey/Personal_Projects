@@ -26,7 +26,6 @@ exports.postBuyUpgrade = (req, res, next) => {
   const selUpgrade = upgrade.upgrades.filter((up) => up.title === title)[0];
   const selIndex = upgrade.upgrades.findIndex((up) => up === selUpgrade);
 
-  selUpgrade.buy();
   upgrade.upgrades.splice(selIndex, 1);
   res.redirect("/game");
 
@@ -44,3 +43,12 @@ exports.postBuyUpgrade = (req, res, next) => {
 exports.getUpgradesJson = (req, res, next) => {
   res.send(JSON.stringify(upgrade.upgrades));
 };
+
+exports.getProductsJson = (req, res, next) => {
+  res.send(JSON.stringify(product.products));
+}
+
+//TEST
+exports.postClicks = (req, res, next) => {
+  console.log(req.body);
+}
