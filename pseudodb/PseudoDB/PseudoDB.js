@@ -2,7 +2,7 @@ const fs = require("fs");
 
 class PseudoDB {
   //Utility methods
-  errManage = (error, successMessage) => {
+  static errManage = (error, successMessage) => {
     if (error) {
       console.log(error);
     } else {
@@ -14,7 +14,7 @@ class PseudoDB {
   static createDB = (dbName, path) => {
     const filePath = `${path}${dbName}.json`;
   
-    fs.readFile(filePath, "utf-8" ,(err, fileData) => {
+    fs.readFile(filePath, "utf-8" , (err, fileData) => {
       if (!err) {
         console.log("Database already exists");
         return;
@@ -25,6 +25,25 @@ class PseudoDB {
       fs.writeFile(filePath, startData, err => {
         this.errManage(err, "Database created successfully");
       })
+    })
+  }
+
+  static readFrom = (pathToDB, cb) => {
+    fs.readFile(pathToDB, "utf-8", (err, fileData) => {
+      if (err) {
+        console.log(err);
+        return;
+      }
+
+      const parsedData = JSON.parse(fileData);
+      cb(parsedData);
+    })
+  }
+
+  static writeTo = (pathToDB /* data */) => {
+    this.readFrom(pathToDB, parsedData => {
+      const db = Object.values(parsedData)[0];
+      console.log(db);
     })
   }
 }
